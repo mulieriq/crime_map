@@ -30,6 +30,7 @@ dependencies:
   get_it:
   cupertino_icons: ^1.0.2
   flutter_launcher_icons:
+  flutter_dotenv:
    
   flutter_icons:
    android: "launcher_icon"
