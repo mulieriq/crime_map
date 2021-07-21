@@ -27,6 +27,7 @@ dependencies:
   cloud_firestore:
   cached_network_image:
   json_annotation:
+  get_it:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
