@@ -1,10 +1,11 @@
-import 'package:crime_map/src/helpers/common/app_constants.dart';
-import 'package:crime_map/src/views/home/places/adress_search.dart';
-import 'package:crime_map/src/views/home/places/places_service.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice/places.dart';
-import 'package:geocoding/geocoding.dart';
+
+import '../helpers/common/app_constants.dart';
+import '../views/home/places/adress_search.dart';
+import '../views/home/places/places_service.dart';
 
 class MapSerivce {
   GoogleMapsPlaces _places =

@@ -1,12 +1,11 @@
-import 'package:crime_map/src/models/entity/location_entity.dart';
-import 'package:crime_map/src/provider/map_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/common/app_constants.dart';
 import '../../helpers/widgets/app_text.dart';
+import '../../models/entity/location_entity.dart';
+import '../../provider/map_provider.dart';
 import '../../utils/media_utility.dart';
 
 class AddCrimeLocation extends StatefulWidget {
@@ -17,8 +16,7 @@ class AddCrimeLocation extends StatefulWidget {
 class _AddCrimeLocationState extends State<AddCrimeLocation> {
   List<Asset> images = <Asset>[];
   late MapProvider? mapProvider;
-  late PlaceEntity searchCoordinates;
-  late bool _requestUserLocation;
+  late PlaceEntity? searchCoordinates;
 
   @override
   void didChangeDependencies() {
@@ -137,7 +135,6 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                                 .getUserPlaceSearch(context)
                                 .then((value) {
                               setState(() {
-                                _requestUserLocation = false;
                                 searchCoordinates = PlaceEntity(
                                     latitude: mapProvider!.placedetails!.result
                                         .geometry!.location.lat,
@@ -152,7 +149,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                               text: AppConstants.kGoogleSearchLocation)),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text("OR"),
+                        child: Text(AppConstants.or),
                       ),
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -162,7 +159,6 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                           ),
                           onPressed: () {
                             setState(() {
-                              _requestUserLocation = true;
                               searchCoordinates = PlaceEntity(
                                   latitude: mapProvider!
                                       .currentUserLocation!.latitude,
@@ -175,6 +171,18 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                           child: CustomText(
                               text: AppConstants.kGoogleUseCurrentLocation)),
                     ])),
+            searchCoordinates == null
+                ? Container()
+                : ListTile(
+                    title: CustomTextTitle(
+                      text:
+                          '${AppConstants.locationCoordinates} ${searchCoordinates!.latitude},${searchCoordinates!.latitude}',
+                    ),
+                    subtitle: CustomTextTitle(
+                      text:
+                          '${AppConstants.locationName} ${searchCoordinates!.city}',
+                    ),
+                  )
           ],
         ),
       ),

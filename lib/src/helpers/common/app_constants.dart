@@ -11,4 +11,7 @@ class AppConstants {
   static const String addCrimePageTitle = 'Add Crime Location';
   static const String firebaseStorageBucket = 'crimeLocation';
   static const String noImageSelected = 'No Image Selected';
+  static const String locationCoordinates = 'Location Co-ordinates';
+  static const String locationName = 'Location Name';
+  static const String or = 'Or';
 }

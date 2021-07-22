@@ -1,9 +1,9 @@
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice/places.dart';
 
 import '../utils/map_utility.dart';
 import 'config/base_provider.dart';
-import 'package:geocoding/geocoding.dart';
 
 class MapProvider extends BaseProvider {
   final _mapSerivce = MapSerivce();
