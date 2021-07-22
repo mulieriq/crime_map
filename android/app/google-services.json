@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "115062957106",
+    "project_id": "crime-app-kweza",
+    "storage_bucket": "crime-app-kweza.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115062957106:android:3bc651533e9a1342b5882b",
+        "android_client_info": {
+          "package_name": "com.kweza.crime_map"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115062957106-q43hpu734si1hsmc2npiet5vjjgrmkl5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kweza.crime_map",
+            "certificate_hash": "18427774abe91719c09114c0bac1719585eaa346"
+          }
+        },
+        {
+          "client_id": "115062957106-3vnb0dd8ps38vshgct7bt6iu7s35matr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk-ALtYzhuVTbxuMoUkFpBbMSOQO90MVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115062957106-3vnb0dd8ps38vshgct7bt6iu7s35matr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
