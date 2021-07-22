@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +12,6 @@ import 'src/provider/auth_provider.dart';
 import 'src/provider/config/provider_config.dart';
 import 'src/views/auth/auth_page.dart';
 import 'src/views/home/map_page.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
