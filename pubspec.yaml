@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider:  
-  firebase_auth:
+  firebase_auth: 3.0.1 
   permission_handler:
   font_awesome_flutter:
   geolocator:
@@ -20,6 +20,7 @@ dependencies:
   fluttertoast: 
   android_intent:
   flutter_google_places:
+  google_maps_webservice: 0.0.20-nullsafety.5
   multi_image_picker:
   google_sign_in:
   intl: ^0.17.0
@@ -29,7 +30,8 @@ dependencies:
   get_it:
   cupertino_icons: ^1.0.2
   flutter_dotenv:
-  firebase_storage:  
+  firebase_storage: 10.0.1
+
 
 dev_dependencies:
   flutter_test:
