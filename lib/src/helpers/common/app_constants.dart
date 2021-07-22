@@ -8,4 +8,6 @@ class AppConstants {
   static const String kGoogleCountry = 'ke';
   static const String kGoogleSearchLocation = 'Search Place';
   static const String addCrimePageTitle = 'Add Crime Location';
+  static const String firebaseStorageBucket = 'crimeLocation';
+  static const String noImageSelected = 'No Image Selected';
 }
