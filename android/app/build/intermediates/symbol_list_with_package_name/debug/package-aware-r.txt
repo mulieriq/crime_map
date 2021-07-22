@@ -1456,6 +1456,7 @@ layout thumb_item
 layout toast_custom
 menu menu_photo_album
 mipmap ic_launcher
+mipmap launcher_icon
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
