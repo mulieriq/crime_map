@@ -1,3 +1,4 @@
+import 'package:crime_map/src/utils/location_html_parser.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +8,7 @@ import '../../helpers/widgets/app_text.dart';
 import '../../models/entity/location_entity.dart';
 import '../../provider/map_provider.dart';
 import '../../utils/media_utility.dart';
+import '../../utils/app_extenstions.dart';
 
 class AddCrimeLocation extends StatefulWidget {
   @override
@@ -17,6 +19,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
   List<Asset> images = <Asset>[];
   late MapProvider? mapProvider;
   PlaceEntity? searchCoordinates;
+  bool isSearchLocation = false;
 
   @override
   void didChangeDependencies() {
@@ -135,6 +138,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                                 .getUserPlaceSearch(context)
                                 .then((value) {
                               setState(() {
+                                isSearchLocation = true;
                                 searchCoordinates = PlaceEntity(
                                     latitude: mapProvider!.placedetails!.result
                                         .geometry!.location.lat,
@@ -158,17 +162,14 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                             ),
                           ),
                           onPressed: () => setState(() {
-                               
-                                 
-                                    searchCoordinates = PlaceEntity(
-                                        latitude: mapProvider!
-                                            .currentUserLocation!.latitude,
-                                        longitude: mapProvider!
-                                            .currentUserLocation!.longitude,
-                                        city: mapProvider!
-                                            .places![0].administrativeArea);
-                               
-                               
+                                isSearchLocation = false;
+                                searchCoordinates = PlaceEntity(
+                                    latitude: mapProvider!
+                                        .currentUserLocation!.latitude,
+                                    longitude: mapProvider!
+                                        .currentUserLocation!.longitude,
+                                    city: mapProvider!
+                                        .places![0].administrativeArea);
                               }),
                           child: CustomText(
                               text: AppConstants.kGoogleUseCurrentLocation)),
@@ -177,13 +178,15 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                 ? Container()
                 : ListTile(
                     title: CustomTextTitle(
-                      text:
-                          '${AppConstants.locationCoordinates} ${searchCoordinates!.latitude},${searchCoordinates!.latitude}',
+                      text: AppConstants.locationCoordinates &
+                          "${searchCoordinates!.latitude},${searchCoordinates!.latitude}",
                     ),
-                    subtitle: CustomText(
-                      text:
-                          '${AppConstants.locationName} ${searchCoordinates!.city}',
-                    ),
+                    subtitle: isSearchLocation
+                        ? locationHtmlParser(searchCoordinates!.city)
+                        : CustomText(
+                            text:
+                                '${AppConstants.locationName} ${searchCoordinates!.city}',
+                          ),
                   )
           ],
         ),
