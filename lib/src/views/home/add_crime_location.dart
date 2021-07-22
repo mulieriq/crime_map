@@ -16,7 +16,7 @@ class AddCrimeLocation extends StatefulWidget {
 class _AddCrimeLocationState extends State<AddCrimeLocation> {
   List<Asset> images = <Asset>[];
   late MapProvider? mapProvider;
-  late PlaceEntity? searchCoordinates;
+  PlaceEntity? searchCoordinates;
 
   @override
   void didChangeDependencies() {
@@ -157,17 +157,19 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                           ),
-                          onPressed: () {
-                            setState(() {
-                              searchCoordinates = PlaceEntity(
-                                  latitude: mapProvider!
-                                      .currentUserLocation!.latitude,
-                                  longitude: mapProvider!
-                                      .currentUserLocation!.longitude,
-                                  city: mapProvider!
-                                      .places![0].administrativeArea);
-                            });
-                          },
+                          onPressed: () => setState(() {
+                               
+                                 
+                                    searchCoordinates = PlaceEntity(
+                                        latitude: mapProvider!
+                                            .currentUserLocation!.latitude,
+                                        longitude: mapProvider!
+                                            .currentUserLocation!.longitude,
+                                        city: mapProvider!
+                                            .places![0].administrativeArea);
+                               
+                               
+                              }),
                           child: CustomText(
                               text: AppConstants.kGoogleUseCurrentLocation)),
                     ])),
@@ -178,7 +180,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                       text:
                           '${AppConstants.locationCoordinates} ${searchCoordinates!.latitude},${searchCoordinates!.latitude}',
                     ),
-                    subtitle: CustomTextTitle(
+                    subtitle: CustomText(
                       text:
                           '${AppConstants.locationName} ${searchCoordinates!.city}',
                     ),

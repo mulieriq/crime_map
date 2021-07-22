@@ -10,24 +10,24 @@ class MapProvider extends BaseProvider {
 
   Position? currentUserLocation;
   PlacesDetailsResponse? placedetails; //From Search
-  late List<Placemark>? places; //From Gecoding
+  List<Placemark>? places; //From Gecoding
   MapProvider() {
     setCurrentLocation();
   }
 
-  void setCurrentLocation() async {
+  Future<void> setCurrentLocation() async {
     currentUserLocation = await _mapSerivce.getUserCurrentLocation();
+    await _requestCurrentUserAreaDetails(
+        currentUserLocation!.latitude, currentUserLocation!.longitude);
     notifyListeners();
-    _requestCurrentUserAreaDetails(
-        currentUserLocation!.latitude, currentUserLocation!.latitude);
   }
 
-  Future getUserPlaceSearch(context) async {
+  Future<void> getUserPlaceSearch(context) async {
     placedetails = await _mapSerivce.searchPlace(context);
     notifyListeners();
   }
 
-  Future _requestCurrentUserAreaDetails(double lat, double lng) async {
+  Future<void> _requestCurrentUserAreaDetails(double lat, double lng) async {
     places = await _mapSerivce.getCurrentUserArea(lat, lng);
     notifyListeners();
   }

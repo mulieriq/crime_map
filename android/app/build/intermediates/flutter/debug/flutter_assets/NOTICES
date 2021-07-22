@@ -7660,6 +7660,8 @@ negated the permissions granted in the license. In the spirit of
 permissive licensing, and of not having licensing issues being an
 obstacle to adoption, that text has been removed.
 --------------------------------------------------------------------------------
+geocoding
+geocoding_platform_interface
 geolocator
 geolocator_platform_interface
 geolocator_web

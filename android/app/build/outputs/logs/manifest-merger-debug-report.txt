@@ -13,6 +13,7 @@ MERGED from [:google_maps_flutter] /media/lee/Core/Projects/TechnicalInterview/K
 MERGED from [:flutter_plugin_android_lifecycle] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:sqflite] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:geocoding] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:fluttertoast] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/fluttertoast/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:multi_image_picker] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/multi_image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:google_api_headers] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/google_api_headers/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -303,6 +304,8 @@ MERGED from [:sqflite] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_m
 MERGED from [:sqflite] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:geocoding] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:geocoding] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/fluttertoast/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/fluttertoast/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:multi_image_picker] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/multi_image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
