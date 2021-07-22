@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice/places.dart';
@@ -30,5 +31,15 @@ class MapProvider extends BaseProvider {
   Future<void> _requestCurrentUserAreaDetails(double lat, double lng) async {
     places = await _mapSerivce.getCurrentUserArea(lat, lng);
     notifyListeners();
+  }
+
+  Future<void> saveLocationToDB(Map<String, dynamic> data) async {
+    _mapSerivce.dataBase
+        .saveCrimeLocation(data)
+        .then((value) => setBusy(false));
+  }
+
+  Stream<QuerySnapshot>? fetchLocations() {
+    return _mapSerivce.dataBase.getCrimeLocations();
   }
 }

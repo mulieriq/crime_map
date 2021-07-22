@@ -187,7 +187,22 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                             text:
                                 '${AppConstants.locationName} ${searchCoordinates!.city}',
                           ),
-                  )
+                  ),
+            Center(
+                child: mapProvider!.appBusy
+                    ? CircularProgressIndicator.adaptive()
+                    : ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
+                        onPressed: () => setState(() {
+                          mapProvider!.setBusy(true);
+                          
+                        }),
+                        child: CustomText(text: AppConstants.saveLocation),
+                      ))
           ],
         ),
       ),

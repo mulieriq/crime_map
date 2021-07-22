@@ -12,8 +12,11 @@ MERGED from [:firebase_core] /media/lee/Core/Projects/TechnicalInterview/Kweza/c
 MERGED from [:google_maps_flutter] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/google_maps_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_plugin_android_lifecycle] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:sqflite] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:webview_flutter] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/webview_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:wakelock] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/wakelock/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:geocoding] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:video_player] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/video_player/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:fluttertoast] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/fluttertoast/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:multi_image_picker] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/multi_image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:google_api_headers] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/google_api_headers/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -35,6 +38,11 @@ MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] /home/
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4a8a329fca92c8807a625b4058f28630/jetified-play-services-measurement-api-19.0.0/AndroidManifest.xml:17:1-36:12
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2733ee416a9a3a7703f654641d3c99ee/jetified-firebase-installations-17.0.0/AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-common:20.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/3302300f084732ea1b649fcba8a3ed24/jetified-firebase-common-20.0.0/AndroidManifest.xml:15:1-40:12
+MERGED from [androidx.webkit:webkit:1.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/3cdd832d720c64d4c13f082f8cd31b9d/webkit-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/52ba9f913717dc899b4bc0031a846942/jetified-exoplayer-hls-2.14.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/dd31547021a5dfb6b4fb0ba24001e9ef/jetified-exoplayer-dash-2.14.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f908da4c0b1d2b39cc2a33877a685447/jetified-exoplayer-smoothstreaming-2.14.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b881feb6ad42d758b31cd7b2abcb4d76/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:17:1-26:12
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/lee/.gradle/caches/transforms-2/files-2.1/6fae8299fbe5987d0bdf673f6e242f01/jetified-glide-4.11.0/AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.exifinterface:exifinterface:1.3.1] /home/lee/.gradle/caches/transforms-2/files-2.1/9b95cb5a5ec3de1372cf8a9419b9fdf6/exifinterface-1.3.1/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9d16282ae2cb09b302fb78cbee706195/jetified-play-services-maps-17.0.0/AndroidManifest.xml:17:1-38:12
@@ -82,6 +90,8 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/lee/.gradle/cache
 MERGED from [androidx.savedstate:savedstate:1.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/cb7ab51915ea90b69e7423c0bfb08a17/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/5d4797714e3ea6d715626a65eeef5ca7/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4ab187d26aa83124667691230da00bb6/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/26a09f0aa6584d23d6fa6312e27d36ca/jetified-exoplayer-extractor-2.14.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/1c4a2433bc30db90da6049af82fdf87b/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2821246218eaa288e414690b3906787f/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /home/lee/.gradle/caches/transforms-2/files-2.1/7c9ca5b16b5fa65b2ed06a2b60e8b123/jetified-gifdecoder-4.11.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/bf69db3cd970caed8f4f2566a4788bae/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
@@ -302,10 +312,16 @@ MERGED from [:flutter_plugin_android_lifecycle] /media/lee/Core/Projects/Technic
 MERGED from [:flutter_plugin_android_lifecycle] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/webview_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/webview_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:wakelock] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/wakelock/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:wakelock] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/wakelock/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:geocoding] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:geocoding] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/geocoding/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:video_player] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/video_player/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:video_player] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/video_player/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/fluttertoast/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/fluttertoast/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:multi_image_picker] /media/lee/Core/Projects/TechnicalInterview/Kweza/crime_map/build/multi_image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
@@ -348,6 +364,16 @@ MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/lee/.gradl
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2733ee416a9a3a7703f654641d3c99ee/jetified-firebase-installations-17.0.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-common:20.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/3302300f084732ea1b649fcba8a3ed24/jetified-firebase-common-20.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-common:20.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/3302300f084732ea1b649fcba8a3ed24/jetified-firebase-common-20.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/3cdd832d720c64d4c13f082f8cd31b9d/webkit-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/3cdd832d720c64d4c13f082f8cd31b9d/webkit-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/52ba9f913717dc899b4bc0031a846942/jetified-exoplayer-hls-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/52ba9f913717dc899b4bc0031a846942/jetified-exoplayer-hls-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/dd31547021a5dfb6b4fb0ba24001e9ef/jetified-exoplayer-dash-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/dd31547021a5dfb6b4fb0ba24001e9ef/jetified-exoplayer-dash-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f908da4c0b1d2b39cc2a33877a685447/jetified-exoplayer-smoothstreaming-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f908da4c0b1d2b39cc2a33877a685447/jetified-exoplayer-smoothstreaming-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b881feb6ad42d758b31cd7b2abcb4d76/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b881feb6ad42d758b31cd7b2abcb4d76/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:20:5-22:41
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/lee/.gradle/caches/transforms-2/files-2.1/6fae8299fbe5987d0bdf673f6e242f01/jetified-glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/lee/.gradle/caches/transforms-2/files-2.1/6fae8299fbe5987d0bdf673f6e242f01/jetified-glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.exifinterface:exifinterface:1.3.1] /home/lee/.gradle/caches/transforms-2/files-2.1/9b95cb5a5ec3de1372cf8a9419b9fdf6/exifinterface-1.3.1/AndroidManifest.xml:20:5-22:41
@@ -442,6 +468,10 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/lee/.gradle/cach
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/5d4797714e3ea6d715626a65eeef5ca7/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4ab187d26aa83124667691230da00bb6/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4ab187d26aa83124667691230da00bb6/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/26a09f0aa6584d23d6fa6312e27d36ca/jetified-exoplayer-extractor-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/26a09f0aa6584d23d6fa6312e27d36ca/jetified-exoplayer-extractor-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/1c4a2433bc30db90da6049af82fdf87b/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/1c4a2433bc30db90da6049af82fdf87b/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2821246218eaa288e414690b3906787f/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2821246218eaa288e414690b3906787f/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /home/lee/.gradle/caches/transforms-2/files-2.1/7c9ca5b16b5fa65b2ed06a2b60e8b123/jetified-gifdecoder-4.11.0/AndroidManifest.xml:5:5-7:41
@@ -590,6 +620,8 @@ MERGED from [com.google.android.gms:play-services-measurement-api:19.0.0] /home/
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4a8a329fca92c8807a625b4058f28630/jetified-play-services-measurement-api-19.0.0/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2733ee416a9a3a7703f654641d3c99ee/jetified-firebase-installations-17.0.0/AndroidManifest.xml:10:5-79
 MERGED from [com.google.firebase:firebase-installations:17.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2733ee416a9a3a7703f654641d3c99ee/jetified-firebase-installations-17.0.0/AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b881feb6ad42d758b31cd7b2abcb4d76/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b881feb6ad42d758b31cd7b2abcb4d76/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9d16282ae2cb09b302fb78cbee706195/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9d16282ae2cb09b302fb78cbee706195/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-measurement:19.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/b8dcfd1b552f7109144a8abf8e3c9b86/jetified-play-services-measurement-19.0.0/AndroidManifest.xml:24:5-79
@@ -598,6 +630,8 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.0] /home
 MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/5cd0d79354261244f6a20fdc9d95e6ed/jetified-play-services-measurement-impl-19.0.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/ec8e985a01ffb31bef0a13fc0ca0d39e/jetified-play-services-measurement-sdk-api-19.0.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/ec8e985a01ffb31bef0a13fc0ca0d39e/jetified-play-services-measurement-sdk-api-19.0.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/1c4a2433bc30db90da6049af82fdf87b/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /home/lee/.gradle/caches/transforms-2/files-2.1/1c4a2433bc30db90da6049af82fdf87b/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:24:5-79
 MERGED from [io.grpc:grpc-android:1.28.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9fbe687fafbecc1727e69653ffa44b44/jetified-grpc-android-1.28.0/AndroidManifest.xml:11:5-79
 MERGED from [io.grpc:grpc-android:1.28.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9fbe687fafbecc1727e69653ffa44b44/jetified-grpc-android-1.28.0/AndroidManifest.xml:11:5-79
 	android:name

@@ -9,8 +9,8 @@ part of 'crime_location_model.dart';
 _$_CrimeLocationModel _$_$_CrimeLocationModelFromJson(
     Map<String, dynamic> json) {
   return _$_CrimeLocationModel(
-    latitude: json['latitude'] as String?,
-    longitude: json['longitude'] as String?,
+    latitude: (json['latitude'] as num?)?.toDouble(),
+    longitude: (json['longitude'] as num?)?.toDouble(),
     reportNumber: json['reportNumber'] as int?,
     crimeImages: (json['crimeImages'] as List<dynamic>?)
         ?.map((e) => e as String)

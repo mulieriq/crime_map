@@ -6,8 +6,8 @@ part 'crime_location_model.g.dart';
 @freezed
 abstract class CrimeLocationModel with _$CrimeLocationModel {
   factory CrimeLocationModel(
-      {String? latitude,
-      String? longitude,
+      {double? latitude,
+      double? longitude,
       int? reportNumber,
       List<String>? crimeImages}) = _CrimeLocationModel;
 

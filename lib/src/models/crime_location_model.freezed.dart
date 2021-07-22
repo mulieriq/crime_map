@@ -21,8 +21,8 @@ class _$CrimeLocationModelTearOff {
   const _$CrimeLocationModelTearOff();
 
   _CrimeLocationModel call(
-      {String? latitude,
-      String? longitude,
+      {double? latitude,
+      double? longitude,
       int? reportNumber,
       List<String>? crimeImages}) {
     return _CrimeLocationModel(
@@ -43,8 +43,8 @@ const $CrimeLocationModel = _$CrimeLocationModelTearOff();
 
 /// @nodoc
 mixin _$CrimeLocationModel {
-  String? get latitude => throw _privateConstructorUsedError;
-  String? get longitude => throw _privateConstructorUsedError;
+  double? get latitude => throw _privateConstructorUsedError;
+  double? get longitude => throw _privateConstructorUsedError;
   int? get reportNumber => throw _privateConstructorUsedError;
   List<String>? get crimeImages => throw _privateConstructorUsedError;
 
@@ -60,8 +60,8 @@ abstract class $CrimeLocationModelCopyWith<$Res> {
           CrimeLocationModel value, $Res Function(CrimeLocationModel) then) =
       _$CrimeLocationModelCopyWithImpl<$Res>;
   $Res call(
-      {String? latitude,
-      String? longitude,
+      {double? latitude,
+      double? longitude,
       int? reportNumber,
       List<String>? crimeImages});
 }
@@ -86,11 +86,11 @@ class _$CrimeLocationModelCopyWithImpl<$Res>
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       reportNumber: reportNumber == freezed
           ? _value.reportNumber
           : reportNumber // ignore: cast_nullable_to_non_nullable
@@ -111,8 +111,8 @@ abstract class _$CrimeLocationModelCopyWith<$Res>
       __$CrimeLocationModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? latitude,
-      String? longitude,
+      {double? latitude,
+      double? longitude,
       int? reportNumber,
       List<String>? crimeImages});
 }
@@ -139,11 +139,11 @@ class __$CrimeLocationModelCopyWithImpl<$Res>
       latitude: latitude == freezed
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       longitude: longitude == freezed
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       reportNumber: reportNumber == freezed
           ? _value.reportNumber
           : reportNumber // ignore: cast_nullable_to_non_nullable
@@ -156,8 +156,9 @@ class __$CrimeLocationModelCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
 @JsonSerializable()
+
+/// @nodoc
 class _$_CrimeLocationModel implements _CrimeLocationModel {
   _$_CrimeLocationModel(
       {this.latitude, this.longitude, this.reportNumber, this.crimeImages});
@@ -166,9 +167,9 @@ class _$_CrimeLocationModel implements _CrimeLocationModel {
       _$_$_CrimeLocationModelFromJson(json);
 
   @override
-  final String? latitude;
+  final double? latitude;
   @override
-  final String? longitude;
+  final double? longitude;
   @override
   final int? reportNumber;
   @override
@@ -218,8 +219,8 @@ class _$_CrimeLocationModel implements _CrimeLocationModel {
 
 abstract class _CrimeLocationModel implements CrimeLocationModel {
   factory _CrimeLocationModel(
-      {String? latitude,
-      String? longitude,
+      {double? latitude,
+      double? longitude,
       int? reportNumber,
       List<String>? crimeImages}) = _$_CrimeLocationModel;
 
@@ -227,9 +228,9 @@ abstract class _CrimeLocationModel implements CrimeLocationModel {
       _$_CrimeLocationModel.fromJson;
 
   @override
-  String? get latitude => throw _privateConstructorUsedError;
+  double? get latitude => throw _privateConstructorUsedError;
   @override
-  String? get longitude => throw _privateConstructorUsedError;
+  double? get longitude => throw _privateConstructorUsedError;
   @override
   int? get reportNumber => throw _privateConstructorUsedError;
   @override
