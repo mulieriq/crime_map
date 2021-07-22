@@ -1,12 +1,13 @@
+import 'package:crime_map/src/models/entity/location_entity.dart';
+import 'package:crime_map/src/provider/map_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_webservice/places.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
+import 'package:provider/provider.dart';
 
 import '../../helpers/common/app_constants.dart';
 import '../../helpers/widgets/app_text.dart';
 import '../../utils/media_utility.dart';
-import 'places/adress_search.dart';
-import 'places/places_service.dart';
 
 class AddCrimeLocation extends StatefulWidget {
   @override
@@ -14,12 +15,17 @@ class AddCrimeLocation extends StatefulWidget {
 }
 
 class _AddCrimeLocationState extends State<AddCrimeLocation> {
-  GoogleMapsPlaces _places =
-      GoogleMapsPlaces(apiKey: AppConstants.kGoogleApiKey);
-
-  final _controller = TextEditingController();
-
   List<Asset> images = <Asset>[];
+  late MapProvider? mapProvider;
+  late PlaceEntity searchCoordinates;
+  late bool _requestUserLocation;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    mapProvider = Provider.of<MapProvider>(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,39 +120,61 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                                 ],
                               );
                             }))),
-            Card(
-              child: TextField(
-                controller: _controller,
-                readOnly: true,
-                onTap: () async {
-                  final sessionToken =
-                      DateTime.now().microsecondsSinceEpoch.toString();
-                  final Suggestion? result = await showSearch(
-                    context: context,
-                    delegate: AddressSearch(sessionToken),
-                  );
-                  PlacesDetailsResponse detail =
-                      await _places.getDetailsByPlaceId(result!.placeId);
-                  setState(() {
-                    print(
-                        "this is the place =============== ${detail.result.geometry!.location.lat} , ${detail.result.geometry!.location.lng}");
-                  });
-                },
-                decoration: InputDecoration(
-                  icon: Container(
-                    width: 10,
-                    height: 10,
-                    child: Icon(
-                      Icons.home,
-                      color: Colors.black,
-                    ),
-                  ),
-                  hintText: AppConstants.kGoogleSearchLocation,
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.only(left: 8.0, top: 16.0),
-                ),
-              ),
-            ),
+            Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            mapProvider!
+                                .getUserPlaceSearch(context)
+                                .then((value) {
+                              setState(() {
+                                _requestUserLocation = false;
+                                searchCoordinates = PlaceEntity(
+                                    latitude: mapProvider!.placedetails!.result
+                                        .geometry!.location.lat,
+                                    longitude: mapProvider!.placedetails!.result
+                                        .geometry!.location.lat,
+                                    city: mapProvider!
+                                        .placedetails!.result.adrAddress);
+                              });
+                            });
+                          },
+                          child: CustomText(
+                              text: AppConstants.kGoogleSearchLocation)),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("OR"),
+                      ),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _requestUserLocation = true;
+                              searchCoordinates = PlaceEntity(
+                                  latitude: mapProvider!
+                                      .currentUserLocation!.latitude,
+                                  longitude: mapProvider!
+                                      .currentUserLocation!.longitude,
+                                  city: mapProvider!
+                                      .places![0].administrativeArea);
+                            });
+                          },
+                          child: CustomText(
+                              text: AppConstants.kGoogleUseCurrentLocation)),
+                    ])),
           ],
         ),
       ),

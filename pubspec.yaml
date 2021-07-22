@@ -16,6 +16,7 @@ dependencies:
   permission_handler:
   font_awesome_flutter:
   geolocator:
+  geocoding: 2.0.0
   google_maps_flutter: 
   fluttertoast: 
   android_intent:
