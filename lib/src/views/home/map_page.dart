@@ -1,7 +1,8 @@
+import 'package:crime_map/src/provider/map_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -12,7 +13,6 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   List<Marker> markers = [];
   late GoogleMapController _controller;
-  final _geoLocator = Geolocator();
 
   void onMapCreated(controller) {
     setState(() {
@@ -28,14 +28,13 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
+    final mapProvider = Provider.of<MapProvider>(context);
     return Scaffold(
-      body:
-          // lat == null
-          //     ? const Center(
-          //         child: CircularProgressIndicator.adaptive(),
-          //       )
-          //     :
-          GoogleMap(
+      body: mapProvider.currentUserLocation == null
+          ? const Center(
+              child: CircularProgressIndicator.adaptive(),
+            )
+          : GoogleMap(
               mapType: MapType.normal,
               markers: Set.from(markers),
               zoomGesturesEnabled: true,

@@ -8,6 +8,8 @@
    <application
         android:label="Crime Map"
         android:icon="@mipmap/launcher_icon">
+             <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyAygSlv8_jtTzk47KvTB8H3uL--UwDTkcY"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
