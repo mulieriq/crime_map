@@ -12,7 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
   provider:  
-
   firebase_auth:
   permission_handler:
   font_awesome_flutter:
@@ -29,13 +28,7 @@ dependencies:
   json_annotation:
   get_it:
   cupertino_icons: ^1.0.2
-  flutter_launcher_icons:
-  flutter_dotenv:
-   
-  flutter_icons:
-   android: "launcher_icon"
-   ios: true
-   image_path: "lib/assets/crime_alert.png"
+  flutter_dotenv:   
 
 dev_dependencies:
   flutter_test:
@@ -44,7 +37,12 @@ dev_dependencies:
   freezed:
   build_runner:
   analyzer:
+  flutter_launcher_icons:
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/assets/crime_alert.png"
 
 flutter:
   uses-material-design: true
