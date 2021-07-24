@@ -1,5 +1,6 @@
-import 'package:crime_map/src/helpers/common/app_constants.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
+
+import '../helpers/common/app_constants.dart';
 
 class MediaService {
   static List<Asset> images = <Asset>[];

@@ -1,12 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crime_map/src/helpers/widgets/map_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 
+import '../helpers/widgets/map_widgets.dart';
 import '../models/crime_location_model.dart';
 import '../utils/map_utility.dart';
 import 'config/base_provider.dart';
@@ -56,12 +55,8 @@ class MapProvider extends BaseProvider {
       event.docs.forEach((element) =>
           crimeLocations.add(CrimeLocationModel.fromFirestore(element)));
       crimeLocations.forEach((element) {
-        print("Makers ============ ${element.latitude!}, ${element.longitude}");
         markers.add(Marker(
-          onTap: () {
-            print("========${element.latitude}");
-            mapWidgets(element, context!);
-          },
+          onTap: () => mapWidgets(element, context!),
           draggable: false,
           icon: element.reportNumber! < 5
               ? BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen)

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_maps_flutter_platform_interface/src/types/marker_updates.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/common/color_palette.dart';
@@ -35,7 +34,6 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("Crime locations ============ ${mapProvider!.crimeLocations.length}");
     return Scaffold(
         body: mapProvider!.currentUserLocation == null
             ? const Center(
@@ -53,7 +51,7 @@ class _MapPageState extends State<MapPage> {
                           mapProvider!.crimeLocations[0].latitude!,
                           mapProvider!.crimeLocations[0].longitude!,
                         ),
-                        zoom: 16,
+                        zoom: 12,
                       ),
                       onMapCreated: onMapCreated),
                   Positioned(
