@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crime_map/src/helpers/widgets/map_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -58,11 +60,7 @@ class MapProvider extends BaseProvider {
         markers.add(Marker(
           onTap: () {
             print("========${element.latitude}");
-            showModalBottomSheet(
-                context: context!,
-                builder: (builder) => Container(
-                      height: MediaQuery.of(context!).size.height * .30,
-                    ));
+            mapWidgets(element, context!);
           },
           draggable: false,
           icon: element.reportNumber! < 5

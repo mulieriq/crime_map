@@ -112,7 +112,21 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.1"
+    version: "3.1.0"
+  cached_network_image_platform_interface:
+    dependency: transitive
+    description:
+      name: cached_network_image_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  cached_network_image_web:
+    dependency: transitive
+    description:
+      name: cached_network_image_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   characters:
     dependency: transitive
     description:
@@ -334,14 +348,14 @@ packages:
       name: flutter_blurhash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.0"
+    version: "0.6.0"
   flutter_cache_manager:
     dependency: transitive
     description:
       name: flutter_cache_manager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "3.1.2"
   flutter_dotenv:
     dependency: "direct main"
     description:
@@ -355,7 +369,7 @@ packages:
       name: flutter_google_places
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.8"
+    version: "0.3.0"
   flutter_html:
     dependency: "direct main"
     description:
@@ -491,7 +505,7 @@ packages:
       name: google_api_headers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1+2"
+    version: "1.1.0"
   google_maps_flutter:
     dependency: "direct main"
     description:
@@ -666,7 +680,7 @@ packages:
       name: octo_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "1.0.0+1"
   package_config:
     dependency: transitive
     description:
@@ -674,13 +688,48 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.3"
-  package_info:
+  package_info_plus:
     dependency: transitive
     description:
-      name: package_info
+      name: package_info_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.3+4"
+    version: "1.0.4"
+  package_info_plus_linux:
+    dependency: transitive
+    description:
+      name: package_info_plus_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
+  package_info_plus_macos:
+    dependency: transitive
+    description:
+      name: package_info_plus_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.1"
+  package_info_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: package_info_plus_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  package_info_plus_web:
+    dependency: transitive
+    description:
+      name: package_info_plus_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
+  package_info_plus_windows:
+    dependency: transitive
+    description:
+      name: package_info_plus_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   path:
     dependency: transitive
     description:
@@ -827,7 +876,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.25.0"
+    version: "0.26.0"
   shelf:
     dependency: transitive
     description:
