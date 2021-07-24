@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_flutter_platform_interface/src/types/marker_updates.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/common/color_palette.dart';
@@ -16,30 +17,25 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   late MapProvider? mapProvider;
-  List<Marker> markers = [];
+
   late GoogleMapController _mapController;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    mapProvider = Provider.of<MapProvider>(context);
+    mapProvider = Provider.of<MapProvider>(context, listen: true);
+    mapProvider!.context = context;
   }
 
   void onMapCreated(controller) {
     setState(() {
       _mapController = controller;
     });
-
-    markers.add(Marker(
-      draggable: false,
-      markerId: MarkerId("0"),
-      position: LatLng(mapProvider!.currentUserLocation!.latitude,
-          mapProvider!.currentUserLocation!.longitude),
-    ));
   }
 
   @override
   Widget build(BuildContext context) {
+    print("Crime locations ============ ${mapProvider!.crimeLocations.length}");
     return Scaffold(
         body: mapProvider!.currentUserLocation == null
             ? const Center(
@@ -49,14 +45,15 @@ class _MapPageState extends State<MapPage> {
                 children: [
                   GoogleMap(
                       mapType: MapType.normal,
-                      markers: Set.from(markers),
+                      markers: Set.from(mapProvider!.markers),
                       myLocationEnabled: true,
                       scrollGesturesEnabled: true,
                       initialCameraPosition: CameraPosition(
                         target: LatLng(
-                            mapProvider!.currentUserLocation!.latitude,
-                            mapProvider!.currentUserLocation!.longitude),
-                        zoom: 8,
+                          mapProvider!.crimeLocations[0].latitude!,
+                          mapProvider!.crimeLocations[0].longitude!,
+                        ),
+                        zoom: 16,
                       ),
                       onMapCreated: onMapCreated),
                   Positioned(

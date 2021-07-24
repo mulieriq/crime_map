@@ -1,11 +1,12 @@
-import 'package:crime_map/src/data/database/database_client.dart';
-import 'package:crime_map/src/models/crime_location_model.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 
+import '../data/database/database_client.dart';
 import '../helpers/common/app_constants.dart';
+import '../models/crime_location_model.dart';
 import '../views/home/places/adress_search.dart';
 import '../views/home/places/places_service.dart';
 

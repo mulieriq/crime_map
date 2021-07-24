@@ -13,7 +13,7 @@ class AppConstants {
   static const String noImageSelected = 'No Image Selected';
   static const String locationCoordinates = 'Location Co-ordinates : ';
   static const String locationName = 'Location Name : ';
-  static const String or = 'Or';
+  static const String or = 'OR';
   static const String uploadLocationImage = 'Upload Location Image';
   static const String allPhotos = 'All Photos';
   static const String saveLocation = 'Save Location';

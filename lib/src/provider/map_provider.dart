@@ -1,20 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crime_map/src/models/crime_location_model.dart';
+import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 
+import '../models/crime_location_model.dart';
 import '../utils/map_utility.dart';
 import 'config/base_provider.dart';
 
 class MapProvider extends BaseProvider {
   final _mapSerivce = MapSerivce();
+  BuildContext? context;
 
   Position? currentUserLocation;
   PlacesDetailsResponse? placedetails; //From Search
   List<Placemark>? places; //From Gecoding
   List<DocumentSnapshot>? locationData;
   List<CrimeLocationModel> crimeLocations = <CrimeLocationModel>[];
+  List<Marker> markers = [];
   MapProvider() {
     setCurrentLocation();
     fetchLocations();
@@ -44,11 +48,36 @@ class MapProvider extends BaseProvider {
   }
 
   Future<void>? fetchLocations() {
-    crimeLocations.clear();
     _mapSerivce.dataBase.getCrimeLocations()!.listen((event) {
+      crimeLocations.clear();
+      markers.clear();
       event.docs.forEach((element) =>
           crimeLocations.add(CrimeLocationModel.fromFirestore(element)));
+      crimeLocations.forEach((element) {
+        print("Makers ============ ${element.latitude!}, ${element.longitude}");
+        markers.add(Marker(
+          onTap: () {
+            print("========${element.latitude}");
+            showModalBottomSheet(
+                context: context!,
+                builder: (builder) => Container(
+                      height: MediaQuery.of(context!).size.height * .30,
+                    ));
+          },
+          draggable: false,
+          icon: element.reportNumber! < 5
+              ? BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen)
+              : (element.reportNumber! > 5 && element.reportNumber! < 20)
+                  ? BitmapDescriptor.defaultMarkerWithHue(
+                      BitmapDescriptor.hueYellow)
+                  : BitmapDescriptor.defaultMarkerWithHue(
+                      BitmapDescriptor.hueRed),
+          markerId: MarkerId(element.latitude.toString()),
+          position: LatLng(element.latitude!, element.longitude!),
+        ));
+      });
       notifyListeners();
     });
+    notifyListeners();
   }
 }
