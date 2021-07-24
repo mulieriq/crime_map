@@ -13,17 +13,24 @@ mapWidgets(CrimeLocationModel crimeLocation, BuildContext context) {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: crimeLocation.crimeImages!.length,
-                  itemBuilder: (context, index) => CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      fadeInCurve: Curves.easeInOutCirc,
-                      fadeInDuration: Duration(seconds: 2),
-                      fadeOutCurve: Curves.easeInOutCirc,
-                      fadeOutDuration: Duration(seconds: 2),
-                      imageUrl: crimeLocation.crimeImages![index],
-                      useOldImageOnUrlChange: true,
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(Icons.error)),
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * .5,
+                      child: CachedNetworkImage(
+                          fit: BoxFit.contain,
+                          fadeInCurve: Curves.easeInOutCirc,
+                          fadeInDuration: Duration(seconds: 2),
+                          fadeOutCurve: Curves.easeInOutCirc,
+                          fadeOutDuration: Duration(seconds: 2),
+                          imageUrl: crimeLocation.crimeImages![index],
+                          useOldImageOnUrlChange: true,
+                          placeholder: (context, url) =>
+                              Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error)),
+                    ),
+                  ),
                 ),
               ));
 }

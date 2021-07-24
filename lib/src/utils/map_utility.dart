@@ -9,6 +9,8 @@ import '../models/crime_location_model.dart';
 import '../views/home/places/adress_search.dart';
 import '../views/home/places/places_service.dart';
 
+import '../utils/app_extenstions.dart';
+
 class MapSerivce {
   final dataBase = FirebaseClient();
   GoogleMapsPlaces _places =
@@ -33,16 +35,19 @@ class MapSerivce {
   Future<List<Placemark>> getCurrentUserArea(lat, lng) async =>
       await placemarkFromCoordinates(lat, lng);
 
-  isAreaFrequentFlagged(
-      double startLat, double startLng, List<CrimeLocationModel> places) {
+  static Future<String?> isAreaFrequentFlagged(
+      double startLat, double startLng, List<CrimeLocationModel> places) async {
+    String? reportCases = "0";
     for (int i = 0; i < places.length; i++) {
       double distanceInMeters = Geolocator.distanceBetween(
           startLat, startLng, places[i].latitude!, places[i].longitude!);
       if (distanceInMeters < 500) {
-        print(places[i]);
-      } else {
-        print("Hakuna");
+        reportCases =
+            (places[i].reportNumber! + 1).toString() & places[i].locationId!;
+
+        print("HIII place iko  kwa db  ,  ${places[i].locationId}");
       }
     }
+    return reportCases;
   }
 }

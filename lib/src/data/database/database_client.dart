@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crime_map/src/models/crime_location_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 
@@ -12,8 +13,14 @@ class FirebaseClient {
       .collection(AppConstants.usersCollections)
       .doc(userId)
       .set(user);
-  Future<void> saveCrimeLocation(Map<String, dynamic> data) =>
-      _firestore.collection(AppConstants.crimesLocationCollections).add(data);
+  Future<void> saveCrimeLocation(CrimeLocationModel data) => _firestore
+      .collection(AppConstants.crimesLocationCollections)
+      .add(data.toJson());
+
+  Future<void> updateCrimeLocation(CrimeLocationModel data) => _firestore
+      .collection(AppConstants.crimesLocationCollections)
+      .doc(data.locationId)
+      .update(data.toJson());
   Stream<QuerySnapshot>? getCrimeLocations() =>
       _firestore.collection(AppConstants.crimesLocationCollections).snapshots();
 

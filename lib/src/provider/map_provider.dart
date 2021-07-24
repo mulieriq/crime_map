@@ -42,9 +42,15 @@ class MapProvider extends BaseProvider {
     notifyListeners();
   }
 
-  Future<void> saveLocationToDB(Map<String, dynamic> data) async {
+  Future<void> saveLocationToDB(CrimeLocationModel data) async {
     _mapSerivce.dataBase
         .saveCrimeLocation(data)
+        .then((value) => setBusy(false));
+  }
+
+  Future<void> updateLocationToDB(CrimeLocationModel data) async {
+    _mapSerivce.dataBase
+        .updateCrimeLocation(data)
         .then((value) => setBusy(false));
   }
 
@@ -52,8 +58,8 @@ class MapProvider extends BaseProvider {
     _mapSerivce.dataBase.getCrimeLocations()!.listen((event) {
       crimeLocations.clear();
       markers.clear();
-      event.docs.forEach((element) =>
-          crimeLocations.add(CrimeLocationModel.fromFirestore(element)));
+      event.docs.forEach((element) => crimeLocations
+          .add(CrimeLocationModel.fromFirestore(element, element.id)));
       crimeLocations.forEach((element) {
         markers.add(Marker(
           onTap: () => mapWidgets(element, context!),
