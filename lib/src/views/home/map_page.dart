@@ -32,7 +32,7 @@ class _MapPageState extends State<MapPage> {
 
     markers.add(Marker(
       draggable: false,
-      markerId: const MarkerId('1'),
+      markerId: MarkerId("0"),
       position: LatLng(mapProvider!.currentUserLocation!.latitude,
           mapProvider!.currentUserLocation!.longitude),
     ));
@@ -50,9 +50,7 @@ class _MapPageState extends State<MapPage> {
                   GoogleMap(
                       mapType: MapType.normal,
                       markers: Set.from(markers),
-                      zoomGesturesEnabled: true,
                       myLocationEnabled: true,
-                      compassEnabled: true,
                       scrollGesturesEnabled: true,
                       initialCameraPosition: CameraPosition(
                         target: LatLng(

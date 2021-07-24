@@ -1,6 +1,6 @@
 class PlaceEntity {
   double? latitude;
-  double ? longitude;
+  double? longitude;
   String? city;
 
   PlaceEntity({

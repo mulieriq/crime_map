@@ -1,5 +1,5 @@
-import 'package:crime_map/src/utils/location_html_parser.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -7,8 +7,9 @@ import '../../helpers/common/app_constants.dart';
 import '../../helpers/widgets/app_text.dart';
 import '../../models/entity/location_entity.dart';
 import '../../provider/map_provider.dart';
-import '../../utils/media_utility.dart';
 import '../../utils/app_extenstions.dart';
+import '../../utils/location_html_parser.dart';
+import '../../utils/media_utility.dart';
 
 class AddCrimeLocation extends StatefulWidget {
   @override
@@ -184,8 +185,8 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                     subtitle: isSearchLocation
                         ? locationHtmlParser(searchCoordinates!.city)
                         : CustomText(
-                            text:
-                                '${AppConstants.locationName} ${searchCoordinates!.city}',
+                            text: AppConstants.locationName &
+                                searchCoordinates!.city!,
                           ),
                   ),
             Center(
@@ -199,7 +200,17 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                         ),
                         onPressed: () => setState(() {
                           mapProvider!.setBusy(true);
-                          
+                          mapProvider!.saveLocationToDB({
+                            'latitude': 1.222545,
+                            'longitude': 1.679878,
+                            'reportNumber': 0,
+                            'crimeImages': [
+                              'https://google.com',
+                              'https://google.com',
+                              'https://google.com'
+                            ]
+                          }).then((value) => Fluttertoast.showToast(
+                              msg: AppConstants.locationSaved));
                         }),
                         child: CustomText(text: AppConstants.saveLocation),
                       ))

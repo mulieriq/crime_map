@@ -1,13 +1,20 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-part 'user_model.freezed.dart';
-part 'user_model.g.dart';
+class UserModel {
+  String? userName;
+  String? userEmail;
 
-@freezed
-abstract class UserModel with _$UserModel {
-  factory UserModel({String? userName, String? userEmail}) = _UserModel;
+  UserModel({this.userName, this.userEmail});
 
-  factory UserModel.fromJson(Map<String, dynamic> json) =>
-      _$UserModelFromJson(json);
+  UserModel.fromFireStore(DocumentSnapshot docs) {
+    userName = docs['userName'];
+    userEmail = docs['userEmail'];
+  }
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['userName'] = this.userName;
+    data['userEmail'] = this.userEmail;
+    return data;
+  }
 }

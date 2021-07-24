@@ -20,7 +20,7 @@ void main() async {
     SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.light,
       systemNavigationBarColor: Palette.primaryAccent,
-      statusBarColor: Palette.primaryColor,
+      statusBarColor: Palette.transaparent,
     ),
   );
   await Firebase.initializeApp();

@@ -13,7 +13,7 @@ class FirebaseClient {
       .doc(userId)
       .set(user);
   Future<void> saveCrimeLocation(Map<String, dynamic> data) =>
-      _firestore.collection(AppConstants.usersCollections).add(data);
+      _firestore.collection(AppConstants.crimesLocationCollections).add(data);
   Stream<QuerySnapshot>? getCrimeLocations() =>
       _firestore.collection(AppConstants.crimesLocationCollections).snapshots();
 

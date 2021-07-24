@@ -17,4 +17,5 @@ class AppConstants {
   static const String uploadLocationImage = 'Upload Location Image';
   static const String allPhotos = 'All Photos';
   static const String saveLocation = 'Save Location';
+  static const String locationSaved = 'Location Added';
 }

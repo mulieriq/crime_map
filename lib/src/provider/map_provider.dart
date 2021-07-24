@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crime_map/src/models/crime_location_model.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice/places.dart';
@@ -12,8 +13,11 @@ class MapProvider extends BaseProvider {
   Position? currentUserLocation;
   PlacesDetailsResponse? placedetails; //From Search
   List<Placemark>? places; //From Gecoding
+  List<DocumentSnapshot>? locationData;
+  List<CrimeLocationModel> crimeLocations = <CrimeLocationModel>[];
   MapProvider() {
     setCurrentLocation();
+    fetchLocations();
   }
 
   Future<void> setCurrentLocation() async {
@@ -39,7 +43,12 @@ class MapProvider extends BaseProvider {
         .then((value) => setBusy(false));
   }
 
-  Stream<QuerySnapshot>? fetchLocations() {
-    return _mapSerivce.dataBase.getCrimeLocations();
+  Future<void>? fetchLocations() {
+    crimeLocations.clear();
+    _mapSerivce.dataBase.getCrimeLocations()!.listen((event) {
+      event.docs.forEach((element) =>
+          crimeLocations.add(CrimeLocationModel.fromFirestore(element)));
+      notifyListeners();
+    });
   }
 }
