@@ -32,4 +32,5 @@ class AppConstants {
   static const String enterYourAdress = 'Enter your address';
   static const String clear = 'Clear';
   static const String back = 'Back';
+  static const String envFilePath = 'lib/assets/.env';
 }

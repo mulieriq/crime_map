@@ -13,7 +13,7 @@ import 'src/helpers/common/color_palette.dart';
 import 'src/provider/config/provider_config.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: AppConstants.envFilePath);
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
   SystemChrome.setSystemUIOverlayStyle(
