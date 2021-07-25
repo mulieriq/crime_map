@@ -27,4 +27,5 @@ class AppConstants {
   static const String reportedCases = '0';
 
   static const String noImageError = 'Please Add Location Images';
+  static const String locationImages = 'Location Images';
 }

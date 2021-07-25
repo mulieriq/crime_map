@@ -1,4 +1,3 @@
-import 'package:crime_map/src/provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -6,8 +5,7 @@ import 'package:provider/provider.dart';
 import '../../helpers/common/app_constants.dart';
 import '../../helpers/common/color_palette.dart';
 import '../../helpers/widgets/app_text.dart';
-import '../../utils/app_navigation.dart';
-import '../home/map_page.dart';
+import '../../provider/auth_provider.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -34,9 +32,7 @@ class _AuthPageState extends State<AuthPage> {
                           backgroundColor: Palette.white),
                     )
                   : OutlinedButton.icon(
-                      onPressed: () => authProvider.handleSignIn()
-                      // appNavigatorPush(context: context, path: const MapPage())
-                      ,
+                      onPressed: () => authProvider.handleSignIn(),
                       icon: const Icon(FontAwesomeIcons.google),
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.white,

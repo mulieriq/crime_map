@@ -2,20 +2,21 @@ import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crime_map/src/models/entity/crime_location_update.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 
 import '../../helpers/common/app_constants.dart';
 import '../../models/crime_location_model.dart';
+import '../../models/entity/crime_location_update.dart';
+import '../../models/user_model.dart';
 
 class FirebaseClient {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future saveUser(String userId, Map<String, dynamic> user) => _firestore
+  Future saveUser(String userId, UserModel user) => _firestore
       .collection(AppConstants.usersCollections)
       .doc(userId)
-      .set(user);
+      .set(user.toJson());
   Future<void> saveCrimeLocation(CrimeLocationModel data) => _firestore
       .collection(AppConstants.crimesLocationCollections)
       .add(data.toJson());

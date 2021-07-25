@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import 'src/app/app.dart';
 import 'src/data/di/locator.dart';
 import 'src/helpers/common/app_constants.dart';
 import 'src/helpers/common/color_palette.dart';
-import 'src/provider/auth_provider.dart';
 import 'src/provider/config/provider_config.dart';
-import 'src/views/auth/auth_page.dart';
-import 'src/views/home/map_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,14 +39,7 @@ class CrimeMap extends StatelessWidget {
           primarySwatch: Colors.deepOrange,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        routes: {
-          '/': (BuildContext context) {
-            var provider = Provider.of<AuthProvider>(context, listen: true)
-                .userIsAuthenticated();
-            log('[Auth : $provider]');
-            return provider == null ? AuthPage() : MapPage();
-          }
-        },
+        home: App(),
       ),
     );
   }

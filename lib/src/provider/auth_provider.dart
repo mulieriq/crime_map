@@ -1,14 +1,15 @@
-import 'package:crime_map/src/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../data/database/database_client.dart';
+import '../models/user_model.dart';
 import 'config/base_provider.dart';
 
 class AuthProvider extends BaseProvider {
   AuthProvider() {
     onCurrentUserChanged();
   }
-  GoogleSignInAccount? _currentUser;
+  GoogleSignInAccount? authcurrentUser;
   GoogleSignIn googleSignIn = GoogleSignIn(
     scopes: <String>[
       'email',
@@ -25,7 +26,12 @@ class AuthProvider extends BaseProvider {
         print("Sign in value ============> $value");
         if (value == null) {
           setBusy(false);
-        } else {}
+        } else {
+          UserModel signedUser =
+              UserModel(userEmail: value.email, userName: value.displayName);
+          setCurrentUser(signedUser);
+          FirebaseClient().saveUser(value.id, signedUser);
+        }
       });
     } catch (error) {
       setBusy(false);
@@ -35,8 +41,12 @@ class AuthProvider extends BaseProvider {
 
   onCurrentUserChanged() {
     googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
-      _currentUser = account;
-      print("Current user =============$_currentUser");
+      if (account != null) {
+        setCurrentUser(
+            UserModel(userEmail: account.email, userName: account.displayName));
+      }
+      authcurrentUser = account;
+      print("Current user =============$authcurrentUser");
       notifyListeners();
     });
     googleSignIn.signInSilently();
