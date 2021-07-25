@@ -1,14 +1,19 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crime_map/src/models/crime_location_model.dart';
+import 'package:crime_map/src/provider/config/base_provider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
+import 'package:multi_image_picker/multi_image_picker.dart';
 
 import '../../helpers/common/app_constants.dart';
 
 class FirebaseClient {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  List<String> uploadUrlsLIst = [];
   Future saveUser(String userId, Map<String, dynamic> user) => _firestore
       .collection(AppConstants.usersCollections)
       .doc(userId)
@@ -24,44 +29,54 @@ class FirebaseClient {
   Stream<QuerySnapshot>? getCrimeLocations() =>
       _firestore.collection(AppConstants.crimesLocationCollections).snapshots();
 
-  Future<List<String>> uploadImageTest(
-      {@required List<Uint8List>? assets}) async {
+  Future<List<List<String>>> uploadImages(
+      {@required List<Asset>? assets}) async {
     List<String> uploadUrls = [];
 
-    await Future.wait(
+    return await Future.wait(
         assets!.map((asset) async {
-          Reference reference = FirebaseStorage.instance
-              .ref()
-              .child(AppConstants.firebaseStorageBucket);
-          UploadTask uploadTask = reference.putData(asset);
+          ByteData byteData = await asset.getByteData();
+          Uint8List imageData = byteData.buffer.asUint8List();
+          Reference reference = FirebaseStorage.instance.ref().child(
+              AppConstants.firebaseStorageBucket +
+                  "/${DateTime.now().toString()}");
+          UploadTask uploadTask = reference.putData(imageData);
           TaskSnapshot storageTaskSnapshot;
-
-          // Release the image data
-
-          uploadTask.snapshotEvents.listen((TaskSnapshot snapshot) {
-            print(
-                'Snapshot state: ${snapshot.state}'); // paused, running, complete
-            print(
-                'Progress: ${snapshot.totalBytes / snapshot.bytesTransferred}');
-          }, onError: (Object e) {
-            print(e);
+          await uploadTask.whenComplete(() {
+            uploadTask.then((TaskSnapshot snapshot) async {
+              storageTaskSnapshot = snapshot;
+              final String downloadUrl =
+                  await storageTaskSnapshot.ref.getDownloadURL();
+              uploadUrls.add(downloadUrl);
+              print("all images ====>  $uploadUrls");
+            }).catchError((Object e) {
+              log(e.toString());
+            });
           });
-
-          uploadTask.then((TaskSnapshot snapshot) async {
-            print('Upload complete!');
-            storageTaskSnapshot = snapshot;
-            final String downloadUrl =
-                await storageTaskSnapshot.ref.getDownloadURL();
-            uploadUrls.add(downloadUrl);
-            print('Upload success');
-          }).catchError((Object e) {
-            print(e);
-          });
+          return uploadUrls;
         }),
         eagerError: true, cleanUp: (_) {
-      print('eager cleaned up');
+      log('eager cleaned up');
     });
+  }
 
-    return uploadUrls;
+  Future<List<String>> uploadFiles(List<Asset> _images) async {
+    var imageUrls =
+        await Future.wait(_images.map((_image) => uploadFile(_image)));
+    print(imageUrls);
+    return imageUrls;
+  }
+
+  Future<String> uploadFile(Asset _image) async {
+    ByteData byteData = await _image.getByteData();
+    Uint8List imageData = byteData.buffer.asUint8List();
+    Reference reference = FirebaseStorage.instance.ref().child(
+        AppConstants.firebaseStorageBucket + "/${DateTime.now().toString()}");
+    UploadTask uploadTask = reference.putData(imageData);
+
+    await uploadTask.then((TaskSnapshot snapshot) {
+      print('Upload complete!');
+    });
+    return await reference.getDownloadURL();
   }
 }

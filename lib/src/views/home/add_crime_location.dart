@@ -201,47 +201,61 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                           ),
                         ),
                         onPressed: () async {
-                          mapProvider!.setBusy(true);
-                          MapSerivce.isAreaFrequentFlagged(
-                                  searchCoordinates!.latitude!,
-                                  searchCoordinates!.longitude!,
-                                  mapProvider!.crimeLocations)
-                              .then((value) {
-                            int resultValue = int.parse(value!.split(" ")[0]);
-                            print("Report NUmber .......$value");
-                            print("Report NUmber .......$resultValue");
-                            resultValue == 0
-                                ? mapProvider!
-                                    .saveLocationToDB(CrimeLocationModel(
+                          if (searchCoordinates == null) {
+                            mapProvider!.uploadImages(images).then((value) {
+                              if (!mapProvider!.uploadedImages!.isEmpty) {
+                                print("IMages  ================= $value");
+                                print(
+                                    "IMages from provider  ================= ${mapProvider!.uploadedImages![0]}");
+                                Fluttertoast.showToast(
+                                    msg: AppConstants.addArea);
+                              }
+                            });
+                          } else {
+                            mapProvider!.setBusy(true);
+                            MapSerivce.isAreaFrequentFlagged(
+                                    searchCoordinates!.latitude!,
+                                    searchCoordinates!.longitude!,
+                                    mapProvider!.crimeLocations)
+                                .then((value) {
+                              int resultValue = int.parse(value!.split(" ")[0]);
+
+                              resultValue == 0
+                                  ? mapProvider!
+                                      .saveLocationToDB(CrimeLocationModel(
+                                          latitude:
+                                              searchCoordinates!.latitude!,
+                                          longitude:
+                                              searchCoordinates!.longitude!,
+                                          reportNumber: 0,
+                                          crimeImages: [
+                                            'https://google.com',
+                                            'https://google.com',
+                                            'https://google.com'
+                                          ]))
+                                      .then((value) => Fluttertoast.showToast(
+                                          msg: AppConstants.locationSaved))
+                                  : mapProvider!
+                                      .updateLocationToDB(CrimeLocationModel(
                                         latitude: searchCoordinates!.latitude!,
                                         longitude:
                                             searchCoordinates!.longitude!,
-                                        reportNumber: 0,
+                                        reportNumber: resultValue,
                                         crimeImages: [
                                           'https://google.com',
                                           'https://google.com',
                                           'https://google.com'
-                                        ]))
-                                    .then((value) => Fluttertoast.showToast(
-                                        msg: AppConstants.locationSaved))
-                                : mapProvider!
-                                    .updateLocationToDB(CrimeLocationModel(
-                                      latitude: searchCoordinates!.latitude!,
-                                      longitude: searchCoordinates!.longitude!,
-                                      reportNumber: resultValue,
-                                      crimeImages: [
-                                        'https://google.com',
-                                        'https://google.com',
-                                        'https://google.com'
-                                      ],
-                                      locationId: value.split(" ")[1],
-                                    ))
-                                    .then((value) => Fluttertoast.showToast(
-                                        msg: AppConstants.locationSaved));
-                          }).catchError((onError) {
-                            Fluttertoast.showToast(
-                                msg: AppConstants.locationSaved);
-                          });
+                                        ],
+                                        locationId: value.split(" ")[1],
+                                      ))
+                                      .then((value) => Fluttertoast.showToast(
+                                          msg: AppConstants
+                                              .anotherLocationWithinTheRadiud));
+                            }).catchError((onError) {
+                              Fluttertoast.showToast(
+                                  msg: AppConstants.locationSaved);
+                            });
+                          }
                         },
                         child: CustomText(text: AppConstants.saveLocation)))
           ],

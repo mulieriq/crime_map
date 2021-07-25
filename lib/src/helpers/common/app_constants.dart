@@ -18,4 +18,8 @@ class AppConstants {
   static const String allPhotos = 'All Photos';
   static const String saveLocation = 'Save Location';
   static const String locationSaved = 'Location Added';
+
+  static const String addArea = 'Please add an area';
+  static const String anotherLocationWithinTheRadiud =
+      'There is Another Location Within Your Area. Crime Rate Updated';
 }

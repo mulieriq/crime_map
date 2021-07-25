@@ -4,6 +4,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
+import 'package:multi_image_picker/multi_image_picker.dart';
 
 import '../helpers/widgets/map_widgets.dart';
 import '../models/crime_location_model.dart';
@@ -20,6 +21,7 @@ class MapProvider extends BaseProvider {
   List<DocumentSnapshot>? locationData;
   List<CrimeLocationModel> crimeLocations = <CrimeLocationModel>[];
   List<Marker> markers = [];
+  List<String>? uploadedImages;
   MapProvider() {
     setCurrentLocation();
     fetchLocations();
@@ -48,6 +50,17 @@ class MapProvider extends BaseProvider {
         .then((value) => setBusy(false));
   }
 
+  Future<List<String>?> uploadImages(List<Asset> data) async {
+    return _mapSerivce.dataBase.uploadFiles(data).then((value) {
+      uploadedImages = value;
+      print(
+          "$uploadedImages=========================value from image provider");
+      notifyListeners();
+      setBusy(false);
+      return uploadedImages;
+    });
+  }
+
   Future<void> updateLocationToDB(CrimeLocationModel data) async {
     _mapSerivce.dataBase
         .updateCrimeLocation(data)
@@ -71,7 +84,7 @@ class MapProvider extends BaseProvider {
                       BitmapDescriptor.hueYellow)
                   : BitmapDescriptor.defaultMarkerWithHue(
                       BitmapDescriptor.hueRed),
-          markerId: MarkerId(element.latitude.toString()),
+          markerId: MarkerId(element.locationId.toString()),
           position: LatLng(element.latitude!, element.longitude!),
         ));
       });
