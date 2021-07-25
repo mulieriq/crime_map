@@ -38,6 +38,7 @@ class CrimeMap extends StatelessWidget {
         title: AppConstants.appName,
         theme: ThemeData(
           primaryColor: Palette.primaryColor,
+          primarySwatch: Colors.deepOrange,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         routes: {

@@ -51,11 +51,11 @@ class _MapPageState extends State<MapPage> {
                           mapProvider!.crimeLocations[0].latitude!,
                           mapProvider!.crimeLocations[0].longitude!,
                         ),
-                        zoom: 12,
+                        zoom: 10,
                       ),
                       onMapCreated: onMapCreated),
                   Positioned(
-                      bottom: 10,
+                      bottom: 100,
                       right: 10,
                       child: FloatingActionButton(
                         backgroundColor: Palette.primaryColor,

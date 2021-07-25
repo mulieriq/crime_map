@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crime_map/src/models/entity/crime_location_update.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -53,14 +54,12 @@ class MapProvider extends BaseProvider {
   Future<List<String>?> uploadImages(List<Asset> data) async {
     return _mapSerivce.dataBase.uploadFiles(data).then((value) {
       uploadedImages = value;
-      print(
-          "$uploadedImages=========================value from image provider");
       notifyListeners();
       return uploadedImages;
     });
   }
 
-  Future<void> updateLocationToDB(CrimeLocationModel data) async {
+  Future<void> updateLocationToDB(CrimeLocationUpdateModel data) async {
     _mapSerivce.dataBase
         .updateCrimeLocation(data)
         .then((value) => setBusy(false));
@@ -78,7 +77,7 @@ class MapProvider extends BaseProvider {
           draggable: false,
           icon: element.reportNumber! < 5
               ? BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen)
-              : (element.reportNumber! > 5 && element.reportNumber! < 20)
+              : (element.reportNumber! >= 5 && element.reportNumber! < 20)
                   ? BitmapDescriptor.defaultMarkerWithHue(
                       BitmapDescriptor.hueYellow)
                   : BitmapDescriptor.defaultMarkerWithHue(

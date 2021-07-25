@@ -13,9 +13,9 @@ class MediaService {
         selectedAssets: images,
         cupertinoOptions: CupertinoOptions(takePhotoIcon: "chat"),
         materialOptions: MaterialOptions(
-          actionBarColor: "#abcdef",
           actionBarTitle: AppConstants.uploadLocationImage,
           allViewTitle: AppConstants.allPhotos,
+         
           useDetailsView: false,
           selectCircleStrokeColor: "#000000",
         ),

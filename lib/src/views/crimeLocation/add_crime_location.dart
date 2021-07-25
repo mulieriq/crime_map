@@ -1,3 +1,4 @@
+import 'package:crime_map/src/models/entity/crime_location_update.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
@@ -37,6 +38,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
       appBar: AppBar(
         title: CustomTextTitle(
           text: AppConstants.addCrimePageTitle,
+          color: Palette.white,
         ),
         centerTitle: true,
       ),
@@ -144,7 +146,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                                     latitude: mapProvider!.placedetails!.result
                                         .geometry!.location.lat,
                                     longitude: mapProvider!.placedetails!.result
-                                        .geometry!.location.lat,
+                                        .geometry!.location.lng,
                                     city: mapProvider!
                                         .placedetails!.result.adrAddress);
                               });
@@ -184,7 +186,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                 : ListTile(
                     title: CustomTextTitle(
                       text: AppConstants.locationCoordinates &
-                          "${searchCoordinates!.latitude},${searchCoordinates!.latitude}",
+                          "${searchCoordinates!.latitude},${searchCoordinates!.longitude}",
                     ),
                     subtitle: isSearchLocation
                         ? locationHtmlParser(searchCoordinates!.city)
@@ -225,19 +227,16 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                                       .uploadImages(images)
                                       .then((value) {
                                     if (!mapProvider!.uploadedImages!.isEmpty) {
-                                      print("IMages  ================= $value");
-                                      print(
-                                          "IMages from provider  ================= ${mapProvider!.uploadedImages![0]}");
                                       mapProvider!
                                           .saveLocationToDB(CrimeLocationModel(
                                               latitude:
                                                   searchCoordinates!.latitude!,
                                               longitude:
                                                   searchCoordinates!.longitude!,
-                                              reportNumber: 0,
-                                              crimeImages:
-                                                  mapProvider!.uploadedImages!))
+                                              reportNumber: 1,
+                                              crimeImages: value!))
                                           .then((value) {
+                                        images.clear();
                                         Fluttertoast.showToast(
                                             msg: AppConstants.locationSaved);
                                         Navigator.pop(context);
@@ -246,16 +245,18 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                                   });
                                 } else {
                                   mapProvider!
-                                      .updateLocationToDB(CrimeLocationModel(
-                                        latitude: searchCoordinates!.latitude!,
-                                        longitude:
-                                            searchCoordinates!.longitude!,
-                                        reportNumber: resultValue,
-                                        locationId: value.split(" ")[1],
-                                      ))
-                                      .then((value) => Fluttertoast.showToast(
-                                          msg: AppConstants
-                                              .anotherLocationWithinTheRadiud));
+                                      .updateLocationToDB(
+                                          CrimeLocationUpdateModel(
+                                    reportNumber: resultValue,
+                                    locationId: value.split(" ")[1],
+                                  ))
+                                      .then((value) {
+                                    images.clear();
+                                    Fluttertoast.showToast(
+                                        msg: AppConstants
+                                            .anotherLocationWithinTheRadiud);
+                                    Navigator.pop(context);
+                                  });
                                 }
                               }).catchError((onError) {
                                 Fluttertoast.showToast(
@@ -264,7 +265,10 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                             }
                           }
                         },
-                        child: CustomText(text: AppConstants.saveLocation)))
+                        child: CustomText(
+                          text: AppConstants.saveLocation,
+                          color: Palette.white,
+                        )))
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crime_map/src/models/entity/crime_location_update.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 
@@ -19,7 +20,7 @@ class FirebaseClient {
       .collection(AppConstants.crimesLocationCollections)
       .add(data.toJson());
 
-  Future<void> updateCrimeLocation(CrimeLocationModel data) => _firestore
+  Future<void> updateCrimeLocation(CrimeLocationUpdateModel data) => _firestore
       .collection(AppConstants.crimesLocationCollections)
       .doc(data.locationId)
       .update(data.toJson());
