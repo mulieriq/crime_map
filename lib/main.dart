@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
 import 'src/app/app.dart';
@@ -12,6 +13,7 @@ import 'src/helpers/common/color_palette.dart';
 import 'src/provider/config/provider_config.dart';
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
   SystemChrome.setSystemUIOverlayStyle(
