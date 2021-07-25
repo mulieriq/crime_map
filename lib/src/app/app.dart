@@ -19,7 +19,6 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AuthProvider>(context, listen: true);
-    print("Provider ====>${provider.currentUser}");
     return provider.currentUser == null ? AuthPage() : MapPage();
   }
 }

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-import '../../../helpers/common/app_constants.dart';
+import '../../helpers/common/app_constants.dart';
 
 class Suggestion {
   final String placeId;

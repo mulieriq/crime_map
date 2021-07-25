@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crime_map/src/models/entity/crime_location_update.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,6 +8,7 @@ import 'package:multi_image_picker/multi_image_picker.dart';
 
 import '../helpers/widgets/map_widgets.dart';
 import '../models/crime_location_model.dart';
+import '../models/entity/crime_location_update.dart';
 import '../utils/map_utility.dart';
 import 'config/base_provider.dart';
 

@@ -1,4 +1,3 @@
-import 'package:crime_map/src/models/entity/crime_location_update.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
@@ -8,6 +7,7 @@ import '../../helpers/common/app_constants.dart';
 import '../../helpers/common/color_palette.dart';
 import '../../helpers/widgets/app_text.dart';
 import '../../models/crime_location_model.dart';
+import '../../models/entity/crime_location_update.dart';
 import '../../models/entity/location_entity.dart';
 import '../../provider/map_provider.dart';
 import '../../utils/app_extenstions.dart';

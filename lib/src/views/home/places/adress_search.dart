@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'places_service.dart';
+import '../../../helpers/common/app_constants.dart';
+import '../../../data/service/places_service.dart';
 
 class AddressSearch extends SearchDelegate<Suggestion> {
   final sessionToken;
@@ -13,7 +14,7 @@ class AddressSearch extends SearchDelegate<Suggestion> {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        tooltip: 'Clear',
+        tooltip: AppConstants.clear,
         icon: Icon(Icons.clear),
         onPressed: () {
           query = '';
@@ -25,7 +26,7 @@ class AddressSearch extends SearchDelegate<Suggestion> {
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
-      tooltip: 'Back',
+      tooltip: AppConstants.back,
       icon: Icon(Icons.arrow_back),
       onPressed: () {
         Navigator.pop(context);
@@ -48,7 +49,7 @@ class AddressSearch extends SearchDelegate<Suggestion> {
       builder: (context, snapshot) => query == ''
           ? Container(
               padding: EdgeInsets.all(16.0),
-              child: Text('Enter your address'),
+              child: Text(AppConstants.enterYourAdress),
             )
           : snapshot.hasData
               ? ListView.builder(

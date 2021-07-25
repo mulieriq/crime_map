@@ -10,7 +10,7 @@ import '../helpers/common/app_constants.dart';
 import '../models/crime_location_model.dart';
 import '../utils/app_extenstions.dart';
 import '../views/home/places/adress_search.dart';
-import '../views/home/places/places_service.dart';
+import '../data/service/places_service.dart';
 
 class MapSerivce {
   final dataBase = FirebaseClient();

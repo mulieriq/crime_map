@@ -1,9 +1,10 @@
 import 'dart:developer';
 
-import 'package:crime_map/src/provider/auth_provider.dart';
-import 'package:crime_map/src/provider/crime_location_provider.dart';
-import 'package:crime_map/src/provider/map_provider.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../provider/auth_provider.dart';
+import '../../provider/crime_location_provider.dart';
+import '../../provider/map_provider.dart';
 
 GetIt locator = GetIt.I;
 

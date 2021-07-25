@@ -17,19 +17,11 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   late MapProvider? mapProvider;
 
-  late GoogleMapController _mapController;
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     mapProvider = Provider.of<MapProvider>(context, listen: true);
     mapProvider!.context = context;
-  }
-
-  void onMapCreated(controller) {
-    setState(() {
-      _mapController = controller;
-    });
   }
 
   @override
@@ -42,21 +34,22 @@ class _MapPageState extends State<MapPage> {
             : Stack(
                 children: [
                   GoogleMap(
-                      mapType: MapType.normal,
-                      markers: Set.from(mapProvider!.markers),
-                      myLocationEnabled: true,
-                      scrollGesturesEnabled: true,
-                      initialCameraPosition: CameraPosition(
-                        target: LatLng(
-                          mapProvider!.crimeLocations[0].latitude!,
-                          mapProvider!.crimeLocations[0].longitude!,
-                        ),
-                        zoom: 10,
+                    mapType: MapType.normal,
+                    markers: Set.from(mapProvider!.markers),
+                    zoomGesturesEnabled: true,
+                    myLocationEnabled: true,
+                    scrollGesturesEnabled: true,
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(
+                        mapProvider!.crimeLocations[0].latitude!,
+                        mapProvider!.crimeLocations[0].longitude!,
                       ),
-                      onMapCreated: onMapCreated),
+                      zoom: 10,
+                    ),
+                  ),
                   Positioned(
-                      bottom: 100,
-                      right: 10,
+                      bottom: MediaQuery.of(context).size.height * .15,
+                      right: MediaQuery.of(context).size.width * .02,
                       child: FloatingActionButton(
                         backgroundColor: Palette.primaryColor,
                         onPressed: () => appNavigatorPush(
