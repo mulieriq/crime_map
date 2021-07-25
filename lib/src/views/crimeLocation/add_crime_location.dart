@@ -4,6 +4,7 @@ import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/common/app_constants.dart';
+import '../../helpers/common/color_palette.dart';
 import '../../helpers/widgets/app_text.dart';
 import '../../models/crime_location_model.dart';
 import '../../models/entity/location_entity.dart';
@@ -47,7 +48,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                     ? Stack(
                         children: <Widget>[
                           Container(
-                            color: Colors.grey,
+                            color: Palette.grey,
                             height: MediaQuery.of(context).size.height * 0.35,
                             child: Center(
                               child: Text(
@@ -64,11 +65,15 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                             bottom: MediaQuery.of(context).size.height * 0.1900,
                             child: Center(
                               child: FloatingActionButton(
+                                backgroundColor: Palette.primaryColor,
                                 onPressed: () {
                                   MediaService.getImages().then((value) =>
                                       setState(() => images = value));
                                 },
-                                child: Icon(Icons.add),
+                                child: Icon(
+                                  Icons.add,
+                                  color: Palette.white,
+                                ),
                               ),
                             ),
                           ),
@@ -82,15 +87,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                             scrollDirection: Axis.horizontal,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: images.length == 1
-                                        ? 1
-                                        : images.length == 2
-                                            ? 1
-                                            : images.length == 3
-                                                ? 1
-                                                : images.length == 4
-                                                    ? 1
-                                                    : 1),
+                                    crossAxisCount: 1),
                             itemBuilder: (BuildContext context, index) {
                               Asset asset = images[index];
 
@@ -132,6 +129,7 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                     children: <Widget>[
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            primary: Palette.primaryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
@@ -153,13 +151,16 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                             });
                           },
                           child: CustomText(
-                              text: AppConstants.kGoogleSearchLocation)),
+                            text: AppConstants.kGoogleSearchLocation,
+                            color: Palette.white,
+                          )),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(AppConstants.or),
                       ),
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            primary: Palette.primaryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
@@ -175,7 +176,8 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                                         .places![0].administrativeArea);
                               }),
                           child: CustomText(
-                              text: AppConstants.kGoogleUseCurrentLocation)),
+                              text: AppConstants.kGoogleUseCurrentLocation,
+                              color: Palette.white)),
                     ])),
             searchCoordinates == null
                 ? Container()
@@ -201,60 +203,65 @@ class _AddCrimeLocationState extends State<AddCrimeLocation> {
                           ),
                         ),
                         onPressed: () async {
-                          if (searchCoordinates == null) {
-                            mapProvider!.uploadImages(images).then((value) {
-                              if (!mapProvider!.uploadedImages!.isEmpty) {
-                                print("IMages  ================= $value");
-                                print(
-                                    "IMages from provider  ================= ${mapProvider!.uploadedImages![0]}");
-                                Fluttertoast.showToast(
-                                    msg: AppConstants.addArea);
-                              }
-                            });
+                          if (images.isEmpty) {
+                            Fluttertoast.showToast(
+                                msg: AppConstants.noImageError);
                           } else {
-                            mapProvider!.setBusy(true);
-                            MapSerivce.isAreaFrequentFlagged(
-                                    searchCoordinates!.latitude!,
-                                    searchCoordinates!.longitude!,
-                                    mapProvider!.crimeLocations)
-                                .then((value) {
-                              int resultValue = int.parse(value!.split(" ")[0]);
+                            if (searchCoordinates == null) {
+                              Fluttertoast.showToast(msg: AppConstants.addArea);
+                            } else {
+                              mapProvider!.setBusy(true);
 
-                              resultValue == 0
-                                  ? mapProvider!
-                                      .saveLocationToDB(CrimeLocationModel(
-                                          latitude:
-                                              searchCoordinates!.latitude!,
-                                          longitude:
-                                              searchCoordinates!.longitude!,
-                                          reportNumber: 0,
-                                          crimeImages: [
-                                            'https://google.com',
-                                            'https://google.com',
-                                            'https://google.com'
-                                          ]))
-                                      .then((value) => Fluttertoast.showToast(
-                                          msg: AppConstants.locationSaved))
-                                  : mapProvider!
+                              MapSerivce.isAreaFrequentFlagged(
+                                      searchCoordinates!.latitude!,
+                                      searchCoordinates!.longitude!,
+                                      mapProvider!.crimeLocations)
+                                  .then((value) {
+                                int resultValue =
+                                    int.parse(value!.split(" ")[0]);
+
+                                if (resultValue == 0) {
+                                  mapProvider!
+                                      .uploadImages(images)
+                                      .then((value) {
+                                    if (!mapProvider!.uploadedImages!.isEmpty) {
+                                      print("IMages  ================= $value");
+                                      print(
+                                          "IMages from provider  ================= ${mapProvider!.uploadedImages![0]}");
+                                      mapProvider!
+                                          .saveLocationToDB(CrimeLocationModel(
+                                              latitude:
+                                                  searchCoordinates!.latitude!,
+                                              longitude:
+                                                  searchCoordinates!.longitude!,
+                                              reportNumber: 0,
+                                              crimeImages:
+                                                  mapProvider!.uploadedImages!))
+                                          .then((value) {
+                                        Fluttertoast.showToast(
+                                            msg: AppConstants.locationSaved);
+                                        Navigator.pop(context);
+                                      });
+                                    }
+                                  });
+                                } else {
+                                  mapProvider!
                                       .updateLocationToDB(CrimeLocationModel(
                                         latitude: searchCoordinates!.latitude!,
                                         longitude:
                                             searchCoordinates!.longitude!,
                                         reportNumber: resultValue,
-                                        crimeImages: [
-                                          'https://google.com',
-                                          'https://google.com',
-                                          'https://google.com'
-                                        ],
                                         locationId: value.split(" ")[1],
                                       ))
                                       .then((value) => Fluttertoast.showToast(
                                           msg: AppConstants
                                               .anotherLocationWithinTheRadiud));
-                            }).catchError((onError) {
-                              Fluttertoast.showToast(
-                                  msg: AppConstants.locationSaved);
-                            });
+                                }
+                              }).catchError((onError) {
+                                Fluttertoast.showToast(
+                                    msg: AppConstants.locationSaved);
+                              });
+                            }
                           }
                         },
                         child: CustomText(text: AppConstants.saveLocation)))

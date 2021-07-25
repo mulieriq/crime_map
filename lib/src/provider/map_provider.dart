@@ -56,7 +56,6 @@ class MapProvider extends BaseProvider {
       print(
           "$uploadedImages=========================value from image provider");
       notifyListeners();
-      setBusy(false);
       return uploadedImages;
     });
   }
