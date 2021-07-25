@@ -35,6 +35,7 @@ class CrimeMap extends StatelessWidget {
     return MultiProvider(
       providers: ProviderConfig.providers,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: AppConstants.appName,
         theme: ThemeData(
           primaryColor: Palette.primaryColor,

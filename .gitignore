@@ -32,7 +32,6 @@
 /build/*
 /keystore/
 /lib/assets/.env
-/android/local.properties
 
 # Web related
 lib/generated_plugin_registrant.dart

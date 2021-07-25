@@ -36,6 +36,7 @@ class _MapPageState extends State<MapPage> {
                   GoogleMap(
                     mapType: MapType.normal,
                     markers: Set.from(mapProvider!.markers),
+                    circles: Set.from(mapProvider!.circles),
                     zoomGesturesEnabled: true,
                     myLocationEnabled: true,
                     scrollGesturesEnabled: true,

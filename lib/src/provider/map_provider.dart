@@ -1,4 +1,7 @@
+import 'dart:collection';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crime_map/src/helpers/common/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -22,6 +25,7 @@ class MapProvider extends BaseProvider {
   List<DocumentSnapshot>? locationData;
   List<CrimeLocationModel> crimeLocations = <CrimeLocationModel>[];
   List<Marker> markers = [];
+  List<Circle> circles = [];
   List<String>? uploadedImages;
   MapProvider() {
     setCurrentLocation();
@@ -69,9 +73,11 @@ class MapProvider extends BaseProvider {
     _mapSerivce.dataBase.getCrimeLocations()!.listen((event) {
       crimeLocations.clear();
       markers.clear();
+      circles.clear();
       event.docs.forEach((element) => crimeLocations
           .add(CrimeLocationModel.fromFirestore(element, element.id)));
       crimeLocations.forEach((element) {
+        //Add Markers
         markers.add(Marker(
           onTap: () => mapWidgets(element, context!),
           draggable: false,
@@ -85,7 +91,24 @@ class MapProvider extends BaseProvider {
           markerId: MarkerId(element.locationId.toString()),
           position: LatLng(element.latitude!, element.longitude!),
         ));
+        //Add Circles
+        circles.add(Circle(
+          circleId: CircleId(element.locationId.toString()),
+          center: LatLng(element.latitude!, element.longitude!),
+          radius: 500,
+          strokeColor: element.reportNumber! < 5
+              ? Palette.green
+              : (element.reportNumber! >= 5 && element.reportNumber! < 20)
+                  ? Palette.yellow
+                  : Palette.red,
+          fillColor: element.reportNumber! < 5
+              ? Palette.green
+              : (element.reportNumber! >= 5 && element.reportNumber! < 20)
+                  ? Palette.yellow
+                  : Palette.red,
+        ));
       });
+
       notifyListeners();
     });
     notifyListeners();
