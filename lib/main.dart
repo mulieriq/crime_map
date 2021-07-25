@@ -43,8 +43,8 @@ class CrimeMap extends StatelessWidget {
         ),
         routes: {
           '/': (BuildContext context) {
-            var provider =
-                Provider.of<AuthProvider>(context).userIsAuthenticated();
+            var provider = Provider.of<AuthProvider>(context, listen: true)
+                .userIsAuthenticated();
             log('[Auth : $provider]');
             return provider == null ? AuthPage() : MapPage();
           }
