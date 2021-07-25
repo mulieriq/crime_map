@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../../helpers/common/color_palette.dart';
 import '../../provider/map_provider.dart';
 import '../../utils/app_navigation.dart';
-import 'add_crime_location.dart';
+import '../crimeLocation/add_crime_location.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);

@@ -1,5 +1,3 @@
-import 'package:crime_map/src/models/crime_location_model.dart';
-import 'package:crime_map/src/utils/map_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
@@ -7,10 +5,12 @@ import 'package:provider/provider.dart';
 
 import '../../helpers/common/app_constants.dart';
 import '../../helpers/widgets/app_text.dart';
+import '../../models/crime_location_model.dart';
 import '../../models/entity/location_entity.dart';
 import '../../provider/map_provider.dart';
 import '../../utils/app_extenstions.dart';
 import '../../utils/location_html_parser.dart';
+import '../../utils/map_utility.dart';
 import '../../utils/media_utility.dart';
 
 class AddCrimeLocation extends StatefulWidget {

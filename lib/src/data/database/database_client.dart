@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -38,9 +39,8 @@ class FirebaseClient {
     Reference reference = FirebaseStorage.instance.ref().child(
         AppConstants.firebaseStorageBucket + "/${DateTime.now().toString()}");
     UploadTask uploadTask = reference.putData(imageData);
-
     await uploadTask.then((TaskSnapshot snapshot) {
-      print('Upload complete!');
+      log(AppConstants.uploadComplete);
     });
     return await reference.getDownloadURL();
   }

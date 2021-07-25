@@ -60,7 +60,10 @@ class AddressSearch extends SearchDelegate<Suggestion> {
                     },
                   ),
                 )
-              : Container(child: Text('Loading...')),
+              : Container(
+                  child: Center(
+                  child: CircularProgressIndicator.adaptive(),
+                )),
     );
   }
 }
