@@ -27,7 +27,7 @@ Develop an application that visualizes crime loations:
 * Users can upload images of the crime spots.
 
 ### Point to note 
- Places search is set to Kenya only. To enable it in your country or to make it global,consider removing the restriction in `places service` file. 
+ Places search is set to Kenya only. To enable it in your country or to make it global,consider removing the restriction in `/lib/src/data/services/places service` file. 
 ## Tech-stack
 
 * Tech-stack
