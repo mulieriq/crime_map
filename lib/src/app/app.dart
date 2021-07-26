@@ -11,14 +11,16 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  var provider;
+
   @override
   void didChangeDependencies() {
+    provider = Provider.of<AuthProvider>(context, listen: true);
     super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<AuthProvider>(context, listen: true);
-    return provider.currentUser == null ? AuthPage() : MapPage();
+    return provider.authcurrentUser == null ? AuthPage() : MapPage();
   }
 }

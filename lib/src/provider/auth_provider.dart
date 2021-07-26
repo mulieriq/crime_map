@@ -47,12 +47,10 @@ class AuthProvider extends BaseProvider {
 
   _onCurrentUserChanged() {
     googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
-      if (account != null) {
-        setCurrentUser(
-            UserModel(userEmail: account.email, userName: account.displayName));
-      }
       authcurrentUser = account;
       notifyListeners();
+      setCurrentUser(
+          UserModel(userEmail: account!.email, userName: account.displayName));
     });
     googleSignIn.signInSilently();
   }
