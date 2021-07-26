@@ -16,14 +16,14 @@ Develop an application that visualizes crime loations:
 ## Tech-stack
 
 * Tech-stack
-    * [Flutter](https://kotlinlang.org/) - a cross-platform, statically typed, general-purpose programming language with type inference.
-    * [Dart](https://kotlinlang.org/docs/reference/coroutines-overview.html) - perform background operations.
-    * [Provider](https://kotlinlang.org/docs/reference/coroutines/flow.html) - handle the stream of data asynchronously that executes sequentially.
-    * [Google Sign in](https://insert-koin.io/) - a pragmatic lightweight dependency injection framework.
-    * [Geocoding](https://developer.android.com/jetpack)
-    * [Google Places](https://developer.android.com/topic/libraries/architecture/room) - a persistence library provides an abstraction layer over SQLite.
-    * [Cloud Firestore](https://developer.android.com/topic/libraries/architecture/livedata) - is an observable data holder.
-    * [Firebase Storage](https://developer.android.com/topic/libraries/architecture/lifecycle) - perform action when lifecycle state changes.
+    * [Flutter](http://flutter.dev/) - a cross-platform, framework for building mobile applications.
+    * [Dart](http://dart.dev/) - client-optimized language for fast apps on any platform.
+    * [Provider](https://pub.dev/packages/provider) - A wrapper around InheritedWidget to make them easier to use and more reusable.(State management)
+    * [Google Sign in](https://pub.dev/packages/google_sign_in) - A plugin to access Google Sign in.
+    * [Geocoding](https://pub.dev/packages/geocoding) - A Flutter Geocoding plugin which provides easy geocoding and reverse-geocoding features.
+    * [Google Places](https://pub.dev/packages/google_place) - A new Flutter package for handle google place api that place search and details and photos and autocomplete and query autocomplete requests
+    * [Cloud Firestore](https://pub.dev/packages/cloud_firestore) - Flutter plugin for Cloud Firestore, a cloud-hosted, noSQL database with live synchronization and offline support on Android and iOS.
+    * [Firebase Storage](https://pub.dev/packages/firebase_storage) - Flutter plugin for Firebase Cloud Storage, a powerful, simple, and cost-effective object storage service for Android and iOS.
     
 
 * Architecture
@@ -35,11 +35,11 @@ All the dependencies (external libraries) are defined in the single place - `pub
 
 ## Screenshots
 
-The screenshot below shows the tests that are done on the repo:
+The screenshot below shows the working application:
 
+|<image src="screenshots/1.jpg"> | <image src="screenshots/2.jpg"> | <image src="screenshots/3.jpg">| <image src="screenshots/4.jpg">|
+|:---:|:---:|:---:|:---:|
+|LogIn|Map Screen|Add Crime|Location Images|
 
-The UI Tests are tested on an Emulator Running Android 10 (API 29) - Might be flaky on some API levels.
-
-<img src="https://github.com/jumaallan/justeat/blob/develop/screenshots/ui_tests.gif" width="320"/>
 
 
