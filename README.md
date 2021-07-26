@@ -1,4 +1,18 @@
 # Crime Map
+### Prerequisites
+
+Before every run the application, make sure you add google maps API Key in  the following places:
+
+* 1
+```shell script
+/android/app/src/main/AndroidManifest.xml =>  [ <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="API_KEY"/>]
+```
+* 2 Add your api key in the  `.env` file found in `lib/assets`:
+
+```shell script
+GOOGLE_MAP_API_KEY=Your API Key
+```
 
 ### Background
 
@@ -21,7 +35,7 @@ Develop an application that visualizes crime loations:
     * [Provider](https://pub.dev/packages/provider) - A wrapper around InheritedWidget to make them easier to use and more reusable.(State management)
     * [Google Sign in](https://pub.dev/packages/google_sign_in) - A plugin to access Google Sign in.
     * [Geocoding](https://pub.dev/packages/geocoding) - A Flutter Geocoding plugin which provides easy geocoding and reverse-geocoding features.
-    * [Google Places](https://pub.dev/packages/google_place) - A new Flutter package for handle google place api that place search and details and photos and autocomplete and query autocomplete requests
+    * [Google Places](https://pub.dev/packages/google_place) - A Flutter package for handle google place api that place search and details and photos and autocomplete and query autocomplete requests
     * [Cloud Firestore](https://pub.dev/packages/cloud_firestore) - Flutter plugin for Cloud Firestore, a cloud-hosted, noSQL database with live synchronization and offline support on Android and iOS.
     * [Firebase Storage](https://pub.dev/packages/firebase_storage) - Flutter plugin for Firebase Cloud Storage, a powerful, simple, and cost-effective object storage service for Android and iOS.
     
@@ -31,7 +45,7 @@ Develop an application that visualizes crime loations:
 
 ## Dependencies
 
-All the dependencies (external libraries) are defined in the single place - `pubspec.yaml` file. This approach allows to easily manage dependencies and use the same dependency version across all modules.
+All the dependencies (external libraries) are defined in a single place - `pubspec.yaml` file. This approach allows to easily manage dependencies and use the same dependency version across all modules.
 
 ## Screenshots
 
