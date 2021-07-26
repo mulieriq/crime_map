@@ -1,7 +1,7 @@
 # Crime Map
 ### Prerequisites
 
-Before every run the application, make sure you add google maps API Key in  the following places:
+Before you run the application, make sure you add google maps API Key in  the following places:
 
 * 1
 ```shell script
