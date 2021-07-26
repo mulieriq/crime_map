@@ -1,7 +1,5 @@
-import 'dart:collection';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crime_map/src/helpers/common/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,6 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 
+import '../helpers/common/color_palette.dart';
 import '../helpers/widgets/map_widgets.dart';
 import '../models/crime_location_model.dart';
 import '../models/entity/crime_location_update.dart';
