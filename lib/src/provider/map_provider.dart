@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
@@ -107,7 +106,6 @@ class MapProvider extends BaseProvider {
                   : Palette.red,
         ));
       });
-
       notifyListeners();
     });
     notifyListeners();

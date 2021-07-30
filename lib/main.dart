@@ -16,18 +16,16 @@ void main() async {
   await dotenv.load(fileName: AppConstants.envFilePath);
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   SystemUiOverlayStyle(
-  //     statusBarIconBrightness: Brightness.light,
-  //     systemNavigationBarColor: Palette.primaryAccent,
-  //     statusBarColor: Palette.transaparent,
-  //   ),
-  // );
-  // await Firebase.initializeApp();
-  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-  //     .then((_) =>
-  runApp(CrimeMap());
-  //);
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: Palette.primaryAccent,
+      statusBarColor: Palette.transaparent,
+    ),
+  );
+  await Firebase.initializeApp();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) => runApp(CrimeMap()));
   log('[Main : Entry Point]');
 }
 
