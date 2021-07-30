@@ -30,7 +30,7 @@
 .pub-cache/
 .pub/
 /build/*
-/keystore/
+/keystore/*
 /lib/assets/.env
 
 # Web related
