@@ -42,7 +42,7 @@ Develop an application that visualizes crime loations:
     
 
 * Architecture
-    * Clean Architecture
+    * MVVM Architecture
 
 ## Dependencies
 
