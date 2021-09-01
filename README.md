@@ -5,8 +5,7 @@ Before you run the application, make sure you add google maps API Key in  the fo
 
 * 1
 ```shell script
-/android/app/src/main/AndroidManifest.xml =>  [ <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="API_KEY"/>]
+/android/app/src/main/AndroidManifest.xml =>  [ <meta-data android:name="com.google.android.geo.API_KEY"android:value="API_KEY"/>]
 ```
 * 2 Add your api key in the  `.env` file found in `lib/assets`:
 
@@ -26,7 +25,8 @@ Develop an application that visualizes crime loations:
 
 * Users can upload images of the crime spots.
 
-
+### Point to note 
+ Places search is set to Kenya only. To enable it in your country or to make it global,consider removing the restriction in `/lib/src/data/services/places service` file. 
 ## Tech-stack
 
 * Tech-stack
@@ -41,7 +41,7 @@ Develop an application that visualizes crime loations:
     
 
 * Architecture
-    * Clean Architecture
+    * MVVM Architecture
 
 ## Dependencies
 
@@ -54,6 +54,5 @@ The screenshot below shows the working application:
 |<image src="screenshots/1.jpg"> | <image src="screenshots/2.jpg"> | <image src="screenshots/3.jpg">| <image src="screenshots/4.jpg">|
 |:---:|:---:|:---:|:---:|
 |LogIn|Map Screen|Add Crime|Location Images|
-
 
 
