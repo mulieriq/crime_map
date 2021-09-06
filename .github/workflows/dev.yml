@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name : Send Slack Notification
+    - name : Send Slack Notification (Start)
       uses: act10ns/slack@v1
       with: 
         status: ${{ job.status }}
@@ -49,13 +49,25 @@ jobs:
         appId: ${{secrets.FIREBASE_APP_ID}}
         token: ${{secrets.FIREBASE_TOKEN}}       
         file: app/build/outputs/apk/release/app-release-unsigned.apk
-        
-    - name: Upload Artifact To Firebase App Distribution
+
+    - name : Upload Apk To Slack
+      uses: wethinkcode/github_action_slackbot@v0.1
+          with:
+              slack-bot-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_TOKEN }}
+              slack-channel: some-channel-id
+              slack-bot-function: file-upload
+              slack-file: filename
+              slack_optional_input_filename: file-name
+
+
+    - name: Slack Notification(Complete)
       uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          channel: '#workflows'
-        if: always()        
+          channel: '#crime-map-app'
+        if: always()      
+
+
 
   
