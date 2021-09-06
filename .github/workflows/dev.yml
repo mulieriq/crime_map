@@ -52,12 +52,12 @@ jobs:
 
     - name : Upload Apk To Slack
       uses: wethinkcode/github_action_slackbot@v0.1
-          with:
-              slack-bot-oauth-access-token: ${{ secrets.SLACK_WEBHOOK_URL}}
-              slack-channel: crime-map-app
-              slack-bot-function: app/build/outputs/apk/release/app-release.apk
-              slack-file: Crime-Map-Dev
-              slack_optional_input_filename: file-name
+      with:
+        slack-bot-oauth-access-token: ${{ secrets.SLACK_WEBHOOK_URL}}
+        slack-channel: crime-map-app
+        slack-bot-function: app/build/outputs/apk/release/app-release.apk
+        slack-file: Crime-Map-Dev
+        slack_optional_input_filename: file-name
 
 
     - name: Slack Notification(Complete)
