@@ -47,16 +47,16 @@ jobs:
       with:
         appId: ${{secrets.FIREBASE_APP_ID}}
         token: ${{secrets.FIREBASE_TOKEN}}       
-        file: app/build/outputs/apk/release/app-release.apk
+        file: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
 
     - name : Upload Apk To Slack
       uses: wethinkcode/github_action_slackbot@v0.2
       with:
         slack-bot-oauth-access-token: ${{ secrets.SLACK_WEBHOOK_URL}}
         slack-channel: crime-map-app
-        slack-bot-function: app/build/outputs/apk/release/app-release.apk
-        slack-file: Crime-Map-Dev
-        slack_optional_input_filename: file-name
+        slack-bot-function: file-upload
+        slack-file: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+        slack_optional_input_filename: Crime-Map-Dev
 
     - name: Slack Notification(Complete)
       uses: act10ns/slack@v1
