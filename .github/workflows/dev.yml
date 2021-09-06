@@ -37,11 +37,25 @@ jobs:
       with:
         flutter-version: '2.2.3'
 
-    - name : Build Apk    
-      run: |
-        echo flutter pub get
-        echo flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
-     
+    - name: Flutter Pub get
+      run : flutter pub get
 
+    - name : Build Apk    
+      run: flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
+     
+    - name: Upload Artifact To Firebase App Distribution
+      uses: wzieba/Firebase-Distribution-Github-Action@v1
+      with:
+        appId: ${{secrets.FIREBASE_APP_ID}}
+        token: ${{secrets.FIREBASE_TOKEN}}       
+        file: app/build/outputs/apk/release/app-release-unsigned.apk
+        
+    - name: Upload Artifact To Firebase App Distribution
+      uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#workflows'
+        if: always()        
 
   
