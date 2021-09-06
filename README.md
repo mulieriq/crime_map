@@ -1,5 +1,7 @@
 # Crime Map
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b885028a4e894114a72d48d51a610545)](https://app.codacy.com/gh/EricRootLee/crime_map?utm_source=github.com&utm_medium=referral&utm_content=EricRootLee/crime_map&utm_campaign=Badge_Grade_Settings)
+
 ### Prerequisites
 
 Before you run the application, make sure you add google maps API Key in  the following places:
