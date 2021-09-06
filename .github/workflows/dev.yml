@@ -50,13 +50,11 @@ jobs:
         file: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
 
     - name : Upload Apk To Slack
-      uses: wethinkcode/github_action_slackbot@v0.2
+      uses: adrey/slack-file-upload-action@master
       with:
-        slack-bot-oauth-access-token: ${{ secrets.SLACK_WEBHOOK_URL}}
-        slack-channel: crime-map-app
-        slack-bot-function: file-upload
-        slack-file: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
-        slack_optional_input_filename: Crime-Map-Dev
+        token: ${{secrets.SLACK_TOKEN}}
+        path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+        channel: crime-map-app
 
     - name: Slack Notification(Complete)
       uses: act10ns/slack@v1
