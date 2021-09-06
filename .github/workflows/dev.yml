@@ -49,12 +49,12 @@ jobs:
         token: ${{secrets.FIREBASE_TOKEN}}       
         file: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
 
-    - name : Upload Apk To Slack
-      uses: adrey/slack-file-upload-action@master
-      with:
-        token: ${{secrets.SLACK_TOKEN}}
-        path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
-        channel: crime-map-app
+    # - name : Upload Apk To Slack
+    #   uses: adrey/slack-file-upload-action@master
+    #   with:
+    #     token: ${{secrets.SLACK_TOKEN}}
+    #     path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    #     channel: crime-map-app
 
     - name: Slack Notification(Complete)
       uses: act10ns/slack@v1
