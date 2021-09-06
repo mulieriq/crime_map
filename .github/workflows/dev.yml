@@ -8,7 +8,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
 env:
-  SLACK_WEBHOOK_URL : https://hooks.slack.com/services/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 
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
 
 jobs:
  
