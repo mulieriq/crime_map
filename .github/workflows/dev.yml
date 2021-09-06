@@ -36,6 +36,8 @@ jobs:
       uses: subosito/flutter-action@v1
       with:
         flutter-version: '2.2.3'
+
+    - name : Build Apk    
       run: |
         echo flutter pub get
         echo flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
