@@ -22,8 +22,6 @@ jobs:
         status: starting
         channel: '#crime-map-app'
       if: always()
-
-
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
