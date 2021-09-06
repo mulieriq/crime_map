@@ -25,7 +25,6 @@ jobs:
 
     - name : Checkout Repo  
       uses: actions/checkout@v2
-
          
     - name: Setup Java
       uses: actions/setup-java@v1
@@ -51,14 +50,13 @@ jobs:
         file: app/build/outputs/apk/release/app-release.apk
 
     - name : Upload Apk To Slack
-      uses: wethinkcode/github_action_slackbot@v0.1
+      uses: wethinkcode/github_action_slackbot@v0.2
       with:
         slack-bot-oauth-access-token: ${{ secrets.SLACK_WEBHOOK_URL}}
         slack-channel: crime-map-app
         slack-bot-function: app/build/outputs/apk/release/app-release.apk
         slack-file: Crime-Map-Dev
         slack_optional_input_filename: file-name
-
 
     - name: Slack Notification(Complete)
       uses: act10ns/slack@v1
@@ -67,7 +65,4 @@ jobs:
         steps: ${{ toJson(steps) }}
         channel: '#crime-map-app'
       if: always()      
-
-
-
-  
+ 
