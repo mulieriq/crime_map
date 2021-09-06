@@ -48,15 +48,15 @@ jobs:
       with:
         appId: ${{secrets.FIREBASE_APP_ID}}
         token: ${{secrets.FIREBASE_TOKEN}}       
-        file: app/build/outputs/apk/release/app-release-unsigned.apk
+        file: app/build/outputs/apk/release/app-release.apk
 
     - name : Upload Apk To Slack
       uses: wethinkcode/github_action_slackbot@v0.1
           with:
-              slack-bot-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_TOKEN }}
-              slack-channel: some-channel-id
-              slack-bot-function: file-upload
-              slack-file: filename
+              slack-bot-oauth-access-token: ${{ secrets.SLACK_WEBHOOK_URL}}
+              slack-channel: crime-map-app
+              slack-bot-function: app/build/outputs/apk/release/app-release.apk
+              slack-file: Crime-Map-Dev
               slack_optional_input_filename: file-name
 
 
