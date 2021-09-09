@@ -52,8 +52,8 @@ jobs:
     - name : Install lcov
       run  : sudo apt-get install -y lcov
 
-    - name : Remove Generated All Generated Files
-      run  : lcov --remove coverage/lcov.info 'lib/*/*.part.dart' 'lib/generated_plugin_registrant.dart' -o coverage/lcov.info
+    # - name : Remove Generated All Generated Files
+    #   run  : lcov --remove coverage/lcov.info 'lib/*/*.part.dart' 'lib/generated_plugin_registrant.dart' -o coverage/lcov.info
 
     - name : Upload Coverage To Codecov
       uses: codecov/codecov-action@v2
