@@ -1,7 +1,7 @@
 name: crime_map
 description: A new Flutter project.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
@@ -9,36 +9,37 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  cached_network_image: 3.1.0
+  cloud_firestore: 
+  cupertino_icons: ^1.0.2
+  firebase_auth: 3.0.1
+  firebase_storage: 10.0.1
   flutter:
     sdk: flutter
-  provider:  
-  firebase_auth: 3.0.1 
-  permission_handler:
-  font_awesome_flutter:
-  geolocator:
-  geocoding: 2.0.0
-  google_maps_flutter: 
+  flutter_dotenv: 
+  flutter_google_places: 
+  flutter_html: 
   fluttertoast: 
-  flutter_google_places:
-  google_maps_webservice: 0.0.20-nullsafety.5
-  multi_image_picker:
-  google_sign_in:
+  font_awesome_flutter: 
+  geocoding: 2.0.0
+  geolocator: 
+  get_it: 
+  google_maps_flutter: 
+  google_maps_webservice:
+  google_sign_in: 
+  html: 
   intl: ^0.17.0
-  cloud_firestore:
-  cached_network_image: 3.1.0
-  get_it:
-  cupertino_icons: ^1.0.2
-  flutter_dotenv:
-  firebase_storage: 10.0.1
-  html:
-  flutter_html:
 
+  multi_image_picker: 
+  permission_handler: 
+  provider: 
 
 dev_dependencies:
+  analyzer: 
+  flutter_launcher_icons: 
   flutter_test:
     sdk: flutter
-  analyzer:
-  flutter_launcher_icons:
+  mockito: ^5.0.15  
 
 flutter_icons:
   android: "launcher_icon"
@@ -48,5 +49,5 @@ flutter_icons:
 flutter:
   uses-material-design: true
   assets:
-   - lib/assets/
-   - lib/assets/.env
+    - lib/assets/
+    - lib/assets/.env

@@ -2,9 +2,10 @@ name: dev
 
 on:
 
-  push:
-    branches: [ test ]
-
+  # push:
+  #   branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
@@ -60,6 +61,23 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }} 
         files: coverage/lcov.info
+
+    - name : Build Apk    
+      run: flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
+     
+    - name: Upload Artifact To Firebase App Distribution
+      uses: wzieba/Firebase-Distribution-Github-Action@v1
+      with:
+        appId: ${{secrets.FIREBASE_APP_ID}}
+        token: ${{secrets.FIREBASE_TOKEN}}       
+        file: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+
+    # - name : Upload Apk To Slack
+    #   uses: adrey/slack-file-upload-action@master
+    #   with:
+    #     token: ${{secrets.SLACK_TOKEN}}
+    #     path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    #     channel: crime-map-app
 
     - name: Slack Notification(Complete)
       uses: act10ns/slack@v1

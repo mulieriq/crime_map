@@ -1,23 +1,18 @@
+import 'package:crime_map/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:crime_map/main.dart';
-
 void main() {
+  testWidgets("Flutter Widget Test", (WidgetTester tester) async {
+    await tester.pumpWidget(TestScreen());
+    var textField = find.byType(TextField);
+    expect(textField, findsOneWidget);
+  });
+
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(CrimeMap());
+    await tester.pumpWidget(TestScreen());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
+    expect(find.text('Enter text'), findsOneWidget);
     expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
   });
 }
