@@ -21,13 +21,13 @@ class _MapPageState extends State<MapPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     mapProvider = Provider.of<MapProvider>(context, listen: true);
-    mapProvider!.context = context;
+    mapProvider.context = context;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: mapProvider!.currentUserLocation == null
+        body: mapProvider.currentUserLocation == null
             ? const Center(
                 child: CircularProgressIndicator.adaptive(),
               )
@@ -35,15 +35,15 @@ class _MapPageState extends State<MapPage> {
                 children: [
                   GoogleMap(
                     mapType: MapType.normal,
-                    markers: Set.from(mapProvider!.markers),
-                    circles: Set.from(mapProvider!.circles),
+                    markers: Set.from(mapProvider.markers),
+                    circles: Set.from(mapProvider.circles),
                     zoomGesturesEnabled: true,
                     myLocationEnabled: true,
                     scrollGesturesEnabled: true,
                     initialCameraPosition: CameraPosition(
                       target: LatLng(
-                        mapProvider!.crimeLocations[0].latitude!,
-                        mapProvider!.crimeLocations[0].longitude!,
+                        mapProvider.crimeLocations[0].latitude!,
+                        mapProvider.crimeLocations[0].longitude!,
                       ),
                       zoom: 10,
                     ),
