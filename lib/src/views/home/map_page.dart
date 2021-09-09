@@ -15,7 +15,7 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  late MapProvider? mapProvider;
+  late MapProvider mapProvider;
 
   @override
   void didChangeDependencies() {

@@ -37,7 +37,15 @@ jobs:
         flutter-version: '2.2.3'
 
     - name: Flutter Pub get
-      run : flutter pub get
+      run : |
+          echo  flutter clean
+          echo  flutter pub get
+
+    - name : Flutter Analyze
+      run  : flutter Analyze
+
+    - name : Run Test  
+      run  : flutter test
 
     - name : Build Apk    
       run: flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
