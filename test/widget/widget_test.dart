@@ -8,4 +8,11 @@ void main() {
     var textField = find.byType(TextField);
     expect(textField, findsOneWidget);
   });
+
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    await tester.pumpWidget(TestScreen());
+
+    expect(find.text('Enter text'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+  });
 }

@@ -16,7 +16,7 @@ class TestScreen extends StatelessWidget {
         home: Scaffold(
           body: TextField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: "Enter text")),
+                  border: OutlineInputBorder(), labelText: 'Enter text')),
         ));
   }
 }
