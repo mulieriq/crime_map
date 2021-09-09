@@ -42,7 +42,7 @@ jobs:
           echo  flutter pub get
 
     - name : Flutter Analyze
-      run  : flutter Analyze
+      run  : flutter analyze
 
     - name : Run Test  
       run  : flutter test
