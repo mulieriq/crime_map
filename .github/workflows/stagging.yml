@@ -2,10 +2,9 @@ name: Stagging
 
 on:
 
-  # push:
-  #   branches: [ main ]
-  pull_request:
+  push:
     branches: [ main ]
+
 
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
