@@ -1,4 +1,4 @@
-# Crime Map
+# Crime Map App
 
 
 ![Github Workflow](https://img.shields.io/github/workflow/status/EricRootLee/crime_map/Development?style=flat)
