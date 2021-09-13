@@ -1,4 +1,4 @@
-# Crime Map
+# Crime Map App
 
 
 ![Github Workflow](https://img.shields.io/github/workflow/status/EricRootLee/crime_map/Development?style=flat)
@@ -62,3 +62,4 @@ The screenshot below shows the working application:
 |LogIn|Map Screen|Add Crime|Location Images|
 
 
+2021
