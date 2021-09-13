@@ -3,6 +3,7 @@
 
 ![Github Workflow](https://img.shields.io/github/workflow/status/EricRootLee/crime_map/Development?style=flat)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b885028a4e894114a72d48d51a610545)](https://app.codacy.com/gh/EricRootLee/crime_map?utm_source=github.com&utm_medium=referral&utm_content=EricRootLee/crime_map&utm_campaign=Badge_Grade_Settings)
+[![CodeFactor](https://www.codefactor.io/repository/github/ericrootlee/crime_map/badge)](https://www.codefactor.io/repository/github/ericrootlee/crime_map)
 [![codecov](https://codecov.io/gh/EricRootLee/crime_map/branch/main/graph/badge.svg)](https://codecov.io/gh/EricRootLee/crime_map)
 
 ### Prerequisites
