@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../helpers/common/app_constants.dart';
-import '../../../data/service/places_service.dart';
+import '../common/app_constants.dart';
+import '../../data/service/places_service.dart';
 
 class AddressSearch extends SearchDelegate<Suggestion> {
   final sessionToken;

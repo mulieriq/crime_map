@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:crime_map/src/helpers/widgets/adress_search.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,7 +10,6 @@ import '../data/database/database_client.dart';
 import '../helpers/common/app_constants.dart';
 import '../models/crime_location_model.dart';
 import '../utils/app_extenstions.dart';
-import '../views/home/places/adress_search.dart';
 import '../data/service/places_service.dart';
 
 class MapSerivce {

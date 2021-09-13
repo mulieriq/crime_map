@@ -33,6 +33,10 @@ dependencies:
   multi_image_picker: 
   permission_handler: 
   provider: 
+  #Error Reporting
+  sentry_flutter: ^6.0.0
+  device_info_plus: ^2.1.0
+  package_info_plus: ^1.0.6
 
 dev_dependencies:
   analyzer: 
