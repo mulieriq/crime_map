@@ -9,7 +9,7 @@ void main() {
     expect(textField, findsOneWidget);
   });
 
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Test text field', (WidgetTester tester) async {
     await tester.pumpWidget(TestScreen());
 
     expect(find.text('Enter text'), findsOneWidget);
