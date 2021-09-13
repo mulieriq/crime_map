@@ -15,7 +15,6 @@ class MediaService {
         materialOptions: MaterialOptions(
           actionBarTitle: AppConstants.uploadLocationImage,
           allViewTitle: AppConstants.allPhotos,
-         
           useDetailsView: false,
           selectCircleStrokeColor: "#000000",
         ),
