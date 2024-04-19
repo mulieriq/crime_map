@@ -23,12 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: Namadgi/checkout@main
 
-      - name: Setup Flutter
-        uses: Namadgi/flutter-action@main
-        with:
-          flutter-version: '3.3.0'
-          channel: 'stable'
-      - run: flutter --version
+      # - name: Setup Flutter
+      #   uses: Namadgi/flutter-action@main
+      #   with:
+      #     flutter-version: '3.3.0'
+      #     channel: 'stable'
+      # - run: flutter --version
 
       - name: Cache pub dependencies
         uses: Namadgi/cache@main
